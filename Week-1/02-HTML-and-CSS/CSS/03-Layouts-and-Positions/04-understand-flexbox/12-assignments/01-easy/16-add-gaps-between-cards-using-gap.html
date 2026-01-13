@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <script>
+        /**
+         * Assignment-16: 
+         * Create a row of cards using flexbox and add equal spacing between
+         * them using gap.
+        */
+
+        /**
+         * What you'll learn:
+         * 1. How to use the gap property with flexbox.
+         * 2. How to layout elements in a row with equal spacing.
+         * 3. Why gap is better than manually adding margins.
+         *    a. display: flex  - Makes the container flex container
+         *    b. gap: 20px      - Adds 20px space b/w child elements
+         *    c. flex: 1        - All cards take equal width
+         * 
+         * Note: gap works only b/w flex items, not outside the container.
+        */
+    </script>
+    <style>
+        .card-container {
+            display: flex;
+            gap: 20px; /* Adds 20px spacing between cards */
+            padding: 20px;
+        }
+
+        .card {
+            flex: 1;
+            background-color: #f3f3f3;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card-container">
+        <div class="card">Card 1</div>
+        <div class="card">Card 2</div>
+        <div class="card">Card 3</div>
+    </div>
+</body>
+
+</html>

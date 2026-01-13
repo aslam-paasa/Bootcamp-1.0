@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <script>
+        /**
+         * Assignment-6: 
+         * Create a horizontal flex container with 3 boxes inside. Use
+         * justify-content: space-around so that:
+         * a. First item sticks to the left
+         * b. Last item sticks to the right
+         * c. Equal space is placed before and after each item
+         *    (Extra space before first and after last item)
+        */
+
+        /**
+         * What you'll learn:
+         * You'll learn how to:
+         * a. Use justify-content: space-around to eventually distribute
+         *    flex items with space on both sides
+         * b. Create a horizontal navbar layout using flexbox
+         * c. Understand how spacing differs between space-around, space-between
+         *    and space-evenly. 
+        */
+    </script>
+    <style>
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #2d2d2d;
+            padding: 15px;
+        }
+
+        .nav-item {
+            color: white;
+            font-size: 18px;
+            padding: 8px 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="nav-item">Home</div>
+        <div class="nav-item">About</div>
+        <div class="nav-item">Contact</div>
+    </div>
+</body>
+
+</html>

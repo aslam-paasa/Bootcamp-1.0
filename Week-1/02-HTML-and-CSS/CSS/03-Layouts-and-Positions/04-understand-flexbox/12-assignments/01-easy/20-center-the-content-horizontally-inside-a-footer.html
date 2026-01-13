@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <script>
+        /**
+         * Assignment-20: 
+         * Create a footer at the bottom of your webpage that has centered
+         * text like "Copyright 2025 Your Company". Use flexbox and
+         * justify-content: center to align the text horizontally.
+        */
+
+        /**
+         * What you'll learn:
+         * 1. How to use flexbox to center content horizontally.
+         * 2. Why flexbox is better than text-align for centering.
+         * 3. The power of justify-content: center.
+         * 
+         * Output:
+         * a. We use display: flex to turn the footer into a flex container.
+         * b. Then, justify-content: center makes the text center horizontally.
+         * c. Optionally, we also use align-items: center to center things
+         *    vertically.
+         * 
+         *    +------------------------------+
+         *    |       © 2025 YourSite        |
+         *    +------------------------------+
+         * 
+         * 
+         * Note: Use margin-top: auto when your footer should always sit at
+         *       the bottom even if the page has little content.
+        */
+    </script>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
+            /* Pushes footer to the bottom */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Main content could go here -->
+    <div style="flex: 1;"></div>
+
+    <footer class="footer">
+        © 2025 YourSiteName. All rights reserved.
+    </footer>
+</body>
+
+</html>

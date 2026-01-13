@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Blank Template</title>
+		<!-- external CSS link -->
+		 <link rel="preconnect" href="https://fonts.googleapis.com">
+		 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+		 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
+
+		<script>
+		/**
+		 * Text Styling Properties:
+		 * 1. Font Properties
+		 * 2. Text Properties
+		*/
+
+		/**
+		 * Font Properties:
+		 * 1. font-family: Specifies the font type.
+		 * 
+		 *    p {
+		 *        font-family: Arial, sans-serif;
+		 *    }
+		 * 
+		 * 2. font-style: Specifies text style(normal, italic oblique)
+		 *    
+		 *    p {
+		 *        font-style: italic;
+		 *    }
+		 * 
+		 * 3. font-weight: Controls boldness (normal, bold, 100-900).
+		 * 
+		 *    p {
+		 *        font-weight: bold;
+		 *    }
+		 * 
+		 * 4. line-height: Adjusts spacing between lines
+		 * 
+		 *    p {
+		 *        line-height: 1.5;
+		 *    }
+		 * 
+		 * 5. letter-spacing: Adjusts spacing between letters
+		 * 
+		 *    p {
+		 *        letter-spacing: 2px;
+		 *    }
+		*/
+
+		/**
+		 * Text Properties:
+		 * 1. text-align: Aligns text(left, center, right, justify).
+		 * 
+		 *    p {
+		 *        text-align: center;
+		 *    }
+		 * 
+		 * 2. text-transform: Changes case (uppercase, lowercase, capitalize)
+		 * 
+		 *    p {
+		 *        text-transform: uppercase;
+		 *    }
+		 * 
+		 * 3. text-decoration: Adds underline, overline, or line-through.
+		 * 
+		 *    p {
+		 *        text-decoration: underline;
+		 *    }
+		 * 
+		 * 4. text-shadow: Adds a shadow to text.
+		 * 
+		 *    h1 {
+		 *         text-shadow: 2px 2px 5px gray;
+		 *    }
+		*/
+
+		
+		 /**
+		  * Font-family & Font-weight:
+		  * - Fonts are actually files that the browser needs to render a font.
+		  * - Fonts are in-built inside the browser, but if we want a fancier
+		  *   font, we can give that file to the browser so that the browser can
+		  *   render those text using that font.
+		  * - We can get bunch of google fonts using googleapis CDN, and we
+		  *   need to link those font to the head of the HTML, and then we need
+		  *   to link our CSS file to the head of html.
+		  * 
+		  * 1. HTML:
+		  * => <head>
+		  *       <link href="http://fonts.googleapis.com/css?family=Source+Sans+
+		  *        Pro:wght@300;400;700&display=swap" rel="stylesheet">
+		  *    </head>
+		  * 2. CSS:
+		  * => p {
+		  *       font-family: 'Source Sans Pro', 'Helvetica' sans-serif;
+		  *       font-weight: 700;
+		  *    }
+		  * 
+		  * Q. Why does the link to the font need to come before the CSS file?
+		  * => Cascade: If the css needs those fonts in the css file, we need
+		  *    to load those fonts first.
+		  * 
+		  * Q. Why we have three different fonts above?
+		  * => They are the fallbacks. If for some reason we are not able to get
+		  *    'Source Sans Pro' from google, then its going to try using 
+		  *    'Helvetica', and if for some reason we are not able to get
+		  *    'Helvetica' then it just the default 'sans-serif' font.
+		  * 
+		  * Q. Why are we importing only font-weight: 400 & 700?
+		  * => Importing all font-weights can load the browser. So, to save 
+		  *    micro-seconds.
+		 */
+
+
+		/**
+		 * Background Properties:
+		 * 1. background-color: Sets background color
+		 * 2. background-image: Adds an image
+		 * 3. background-size : Defines image size(cover, contain)
+		 * 4. background-position: Positions image
+		 * 5. background-repeat: Repeats image (repeat, no-repeat).
+		 * 
+		 * Ex:
+		 * 
+		 *     body {
+		 *        background: url('image.jpg') no-repeat center/cover;
+		 *     } 
+		 * 
+		 * Ex: linear-gradient: Creates gradient backgrounds.
+		 * 
+		 *     div {
+		 *       background: linear-gradient(to right, red, blue);
+		 *     }
+		*/
+		
+
+		/**
+		 * Shadow Effect
+		 * 
+		 * 1. box-shadow:
+		 *    - Adds shadow to elements.
+		 *    - Ex:
+		 *           div {
+		 *             box-shadow: 5px 5px 10px gray;
+		 *           }
+		 * 
+		 * 2. text-shadow:
+		 *    - Adds shadow to text.
+		 *    - Ex: 
+		 *           h1 {
+		 *             text-shadow: 2px 2px 5px gray;
+		 *           }
+		*/
+
+		
+		</script>
+	
+	</head>
+	<body>
+
+		<h1>Make this text blue, underlined, and have a gold background</h1>
+
+		<h2>Make this text purple, bolded, 25px, and have an orange border </h2>
+
+		<section>
+			<p>Make this section width of 50%, height of 200px, background of gray, border of black, and the paragraph text white</p>
+		</section>
+
+		<footer>
+			<h3>Make this footer have a black background, with light green border, and this text 20px white plus a font-family of Roboto</h3>
+		</footer>
+
+	</body>
+</html>

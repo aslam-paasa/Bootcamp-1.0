@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pricing Section</title>
+    <script>
+        /**
+         * Assignment Question:
+         * Design a pricing section with 3 cards using flexbox.
+         * Each card should:
+         * a. Have a title (e.g., Basic, Pro, Enterprise)
+         * b. Show the price (e.g., ₹199/mo)
+         * c. Contain a list of features
+         * d. Include a 'Subscribe' button.
+         * 
+         * The layout should:
+         * a. Use flexbox to align the cards in a row.
+         * b. Be responsive (stack cards vertically on small screens)
+         * c. Add hover effects for interaction
+        */
+
+        /**
+         * What you'll learn:
+         * a. display: flex - To arrange cards side by side horizontally.
+         * b. flex-wrap - Allows wrapping on smaller screens.
+         * c. justify-content, align-items - Center align cards inside container
+         * d. media queries - To make layout responsive (cards stack in column
+         *    on mobile)
+         * e. hover effects - Add interactivity to each pricing card
+         * f. box-shadow, border-radius - For modern UI look
+        */
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            padding: 2rem;
+        }
+
+        .pricing-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            flex: 1 1 300px;
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            color: #1a73e8;
+            margin-bottom: 1rem;
+        }
+
+        .features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .subscribe-btn {
+            padding: 0.8rem 1.5rem;
+            background: #1a73e8;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .subscribe-btn:hover {
+            background: #0f5dc5;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-section {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1 style="text-align:center; margin-bottom: 2rem;">Choose Your Plan</h1>
+
+    <div class="pricing-section">
+        <!-- Card 1 -->
+        <div class="pricing-card">
+            <div class="card-title">Basic</div>
+            <div class="price">₹199/mo</div>
+            <ul class="features">
+                <li>1 Website</li>
+                <li>10GB Storage</li>
+                <li>Email Support</li>
+            </ul>
+            <button class="subscribe-btn">Subscribe</button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="pricing-card">
+            <div class="card-title">Pro</div>
+            <div class="price">₹499/mo</div>
+            <ul class="features">
+                <li>5 Websites</li>
+                <li>50GB Storage</li>
+                <li>Priority Support</li>
+            </ul>
+            <button class="subscribe-btn">Subscribe</button>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="pricing-card">
+            <div class="card-title">Enterprise</div>
+            <div class="price">₹999/mo</div>
+            <ul class="features">
+                <li>Unlimited Websites</li>
+                <li>200GB Storage</li>
+                <li>24/7 Support</li>
+            </ul>
+            <button class="subscribe-btn">Subscribe</button>
+        </div>
+    </div>
+
+</body>
+</html>

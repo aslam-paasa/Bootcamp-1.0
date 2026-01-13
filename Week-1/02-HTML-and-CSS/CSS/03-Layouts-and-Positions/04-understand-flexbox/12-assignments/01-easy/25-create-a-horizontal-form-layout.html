@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Horizontal Form Layout</title>
+  <script>
+    /**
+     * Assignment-25: 
+     * Create a horizontal form layout using flexbox where each label is
+     * aligned to the left of its corresponding input. The form should
+     * include:
+     * a. Full Name
+     * b. Email Address
+     * c. Password
+     * Also include a "Submit" button aligned at the end of the form.
+    */
+
+    /**
+     * What you'll learn:
+     * a. Flex Direction: Using flex-direction: row to place label and input
+     *    side-by-side.
+     * b. Alignment: Aligning each label-input pair vertically in the center.
+     * c. Spacing: Using gap or margin for space b/w elements.
+     * d. Responsive Structure: Making the layout adapt to different screen
+     *    widths if needed.
+     * 
+    */
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f5f5f5;
+    }
+
+    .form-container {
+      background: white;
+      padding: 2rem;
+      max-width: 500px;
+      margin: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      width: 150px;
+      font-weight: bold;
+    }
+
+    .form-group input {
+      flex: 1;
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .form-submit {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .form-submit button {
+      padding: 0.6rem 1.2rem;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .form-submit button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <form>
+      <div class="form-group">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email" />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter password" />
+      </div>
+
+      <div class="form-submit">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

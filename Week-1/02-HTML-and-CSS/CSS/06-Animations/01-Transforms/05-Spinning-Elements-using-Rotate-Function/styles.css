@@ -1,0 +1,40 @@
+  /**
+    *
+    * rotate -> rotates elements in 2d space
+    * tranform: rotate(a);
+    * a = angle
+    * -> positive = clockwise rotation
+    * -> negative = counter-clockwise rotation
+    * a = 360 degrees = 1 full rotation -> 360deg
+    * a = 400 gradians = 1 full rotation -> 400grad
+    * a = 2 * pi radians = 2 * 3.14 = 6.28 radians = 1 full rotation -> 6.28rad
+    * a = 1 turn = 1 full rotations -> 1turn
+    *
+    *
+    */
+
+  .wrapper {
+    width: 200px;
+    height: 200px;
+    border: 1px dashed red;
+    margin: 100px auto;
+  }
+
+  .inner {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+
+    /* Degrees */
+    /* transform: rotate(-5deg); */
+
+    /* Gradians */
+    /* transform: rotate(-5grad); */
+
+    /* Radians */
+    /* (360deg / 6.28) * 1rad = 57deg */
+    /* transform: rotate(1rad); */
+
+    /* Turns */
+    /* transform: rotate(0.3turn); */
+  }

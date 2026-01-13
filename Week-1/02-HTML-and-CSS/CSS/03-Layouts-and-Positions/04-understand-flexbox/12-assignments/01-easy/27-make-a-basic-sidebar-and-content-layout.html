@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make a Basic Sidebar and Content Layout</title>
+    <script>
+        /**
+         * Assignment-27: 
+         * Create a layout where a fixed-width sidebar is on the left and a 
+         * content section fills the remaining space on the right using 
+         * Flexbox.
+        */
+
+        /**
+         * What you'll learn:
+         * 1. How to create a flexible 2-column layout using Flexbox
+         * 2. Fixed vs flexible widths
+         * 3. Nested Flexbox structure for clean layouts
+         * 4. Real-world use case: this is how many dashboards or admin panels
+         *    are built
+         * 
+         * We'll use:
+         * a. .layout { display: flex }
+         *    It creates a flex container that aligns child elements
+         *    (sidebar and content) side-by-side.
+         * b. .sidebar { width: 200px }
+         *    This makes the sidebar fixed width, so it won't stretch with 
+         *    the screen.
+         * c. .content { flex: 1 }
+         *    This lets the content section grow and fill the remaining space.
+         * d. height: 100vh
+         *    This makes sure the layout fills the entire viewport height.
+         * 
+         * Output:
+         *    +--------------------+-----------------------------+
+         *    |     Sidebar        |          Content            |
+         *    | (Fixed 200px wide) |   (Takes remaining space)   |
+         *    +--------------------+-----------------------------+
+         */
+
+
+
+    </script>
+    <style>
+        .layout {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 200px;
+            background-color: #2e2e2e;
+            color: white;
+            padding: 20px;
+        }
+
+        .content {
+            flex: 1;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout">
+        <div class="sidebar">
+            <h2>Sidebar</h2>
+            <ul>
+                <li>Dashboard</li>
+                <li>Profile</li>
+                <li>Settings</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h1>Main Content Area</h1>
+            <p>This section stretches to fill the remaining space.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

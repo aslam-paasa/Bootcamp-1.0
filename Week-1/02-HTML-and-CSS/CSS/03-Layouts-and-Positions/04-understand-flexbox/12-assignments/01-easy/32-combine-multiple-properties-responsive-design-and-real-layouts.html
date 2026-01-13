@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Blog Layout</title>
+    <script>
+        /**
+         * Assignment Question: Build a responsive blog layout using Flexbox.
+         * Your task is to build a real-world blog layout that uses multiple
+         * Flexbox properties. The layout should consist of:
+         * a. A responsive navbar.
+         * b. A main section that contains two parts:
+         *    - Sidebar on the left (on desktop), and at the top (on mobile).
+         *    - Content on the right (on desktop), and below the sidebar (on mobile).
+         * c. A footer that stays at the bottom.
+        */
+
+        /**
+         * What you'll learn:
+         * This assignment combines all the important flexbox properties
+         * you've learned so far:
+         * a. flex-direction, justify-content, align-items
+         * b. flex-wrap, order, and gap
+         * c. Layout reordering with media queries
+         * d. Building real responsive layouts with flexbox
+         * e. Combining flex with other CSS properties like width, height,
+         *    padding, etc.
+         * This is where you practice real frontend skills.
+        */
+
+        /**
+         * Pro Tips:
+         * a. Always think mobile-first while building real-world layouts.
+         * b. Flexbox is super powerful when you mix properties together - 
+         *    this is how real sites are built!
+         * c. You can upgrade this into a blog UI with cards, thumbnails,
+         *    tags, etc.
+        */
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #1e1e1e;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .main {
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+            gap: 1rem;
+            padding: 1rem;
+        }
+
+        .sidebar {
+            background-color: #f4f4f4;
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .content {
+            background-color: #ffffff;
+            flex: 3;
+            padding: 1rem;
+        }
+
+        footer {
+            background-color: #1e1e1e;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        /* 📱 Mobile Responsive */
+        @media (max-width: 768px) {
+            .main {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                order: -1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>My Flexbox Blog</h1>
+    </header>
+
+    <div class="main">
+        <div class="sidebar">
+            <h2>Sidebar</h2>
+            <p>Navigation Links or Categories here...</p>
+        </div>
+
+        <div class="content">
+            <h2>Blog Post Title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, laborum.</p>
+            <p>More blog content...</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 My Blog
+    </footer>
+
+</body>
+
+</html>

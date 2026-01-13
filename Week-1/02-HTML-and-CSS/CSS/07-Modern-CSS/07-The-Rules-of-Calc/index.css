@@ -1,0 +1,10 @@
+:root {
+  --spacing: 10px;
+}
+.box1 {
+  background-color: tomato;
+  height: 300px;
+  width: calc(var(--spacing) * 20);
+  float: left;
+  margin-right: 20px;
+}

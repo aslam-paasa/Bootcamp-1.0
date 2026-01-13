@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Capturing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f0f0f0;
+        }
+
+        #a {
+            width: 300px;
+            height: 300px;
+            background: #ff6b6b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #b {
+            width: 200px;
+            height: 200px;
+            background: #4ecdc4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #c {
+            width: 100px;
+            height: 100px;
+            background: #45b7d1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #ddd;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div id="a">
+        <div id="b">
+            <div id="c">
+                <button>Click me</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="04-event-capturing.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <script>
+        /**
+         * Assignment-8: 
+         * Create a horizontal flex container with 3 boxes inside. Use
+         * justify-content: space-between so that:
+         * a. First item sticks to the left     
+         * b. Last item sticks to the right
+         * c. Middle item is centered
+        */
+
+        /**
+         * What you'll learn:
+         * 1. Use of justify-content: space-between in Flexbox.
+         *    - The first item sticks to the left.
+         *    - The last item sticks to the right.
+         *    - Any items in between will be evenly spaced.
+         * 2. Aligning multiple items across a horizontal axis.
+         * 3. Distributing space between items inside a container.
+         * 4. Creating a simple layout with 3 items.
+        */
+
+    </script>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+
+        .item {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">Left</div>
+        <div class="item">Center</div>
+        <div class="item">Right</div>
+    </div>
+</body>
+
+</html>

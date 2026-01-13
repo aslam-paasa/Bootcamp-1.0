@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <script>
+        /**
+         * Assignment-13: 
+         * Create a navigation bar with 3 items inside. Use
+         * align-items: center so that all items are centered horizontally.
+        */
+
+        /**
+         * What you'll learn:
+         * 1. Use display: flex to make horizontal layout.
+         * 2. Use justify-content: center to center items horizontally.
+         * 3. Use align-items: center to center items vertically inside the nav.
+        */
+
+        /**
+         * Output Behavior:
+         * 1. display: flex turns <nav> into a flex container.
+         * 2. justify-content: center aligns all nav links horizontally in
+         *    the center of the container.
+         * 3. align-items: center vertically centers them inside the nav bar's
+         *    height (60px).
+         * 4. We added spacing using margin: 0 20px on the <a> tags to keep
+         *    some breathing room between links..
+        */
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            /* Horizontally center items */
+            align-items: center;
+            /* Vertically center items */
+            background-color: #4caf50;
+            height: 60px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+            font-family: sans-serif;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+</body>
+
+</html>

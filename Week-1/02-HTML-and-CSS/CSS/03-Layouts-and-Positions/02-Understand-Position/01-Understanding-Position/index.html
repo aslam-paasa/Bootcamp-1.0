@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display & Position</title>
+    <script>
+
+        /**
+         * Why learn position after float?
+         * - When using float, you're kind of hacking layout by making things
+         *   "fight for corners". But floats weren't meant for full page
+         *   layouts- they were originally for wrapping text around images!
+         *   So, after floats became messy for layout, developers turned to
+         *   'position', which gave more direct and powerful control over
+         *   where elements sits on the page.
+        */
+
+        /**
+         * Understanding Position:
+         * CSS treats each HTML element as if it is in its own box.
+         * This box will either be a block-level box or an inline-level box.
+         * 
+         * 1. Block-level elements:
+         *    - Block-level boxes start on a new line and act as the main
+         *      building blocks of any layout, while inline boxes flow 
+         *      between surrounding text.
+         *    - You can control how much space each box takes up by setting
+         *      the width of the boxes(and sometimes the height, too).
+         *    - To separate boxes, we can use borders, margins, padding,
+         *      and background colors. 
+         *    - Ex: Block-Level Element: <h1>, <p>, <ul>, <li>
+         *          (Start on a new line)
+         * 
+         *    - The block-level elements in the above take up their own line
+         *      of space and therefore don't overlap each other.
+         *    - Block-level elements also consistently appear on the left
+         *      side of the browser. 
+         *    - This is the default position for block-level elements.
+         * 
+         * Note: The default position of an element can be changed by setting
+         *       its 'position' property. The position property can be take
+         *       one of the five values:
+         *       a. static - the default value (it does not need to be specified)
+         *       b. relative
+         *       c. absolute
+         *       d. fixed
+         *       e. sticky
+         */
+
+        /**
+         * 1. Position: Relative
+         *    - One way to modify the default position of an element is by
+         *      setting its 'position' property to 'relative'.
+         *    - This value allows you to position an element relative to its
+         *      default static position on the web page.
+         * 
+         *      .green-box {
+         *          background-color: green;
+         *          position: relative;
+         *       }
+         * 
+         *    - Although the code in the example above instructs the browser
+         *      to expect a relative positioning of the .green-box element,
+         *      it does not specify where the .green-box element should be
+         *      positioned on the page. This is done by accompanying the
+         *      'position' declaration with one or more of the following 
+         *      offset properties that will move the element away from its
+         *      default static position:
+         *      a. top    : moves the element down from the top.
+         *      b. right  : moves the element up from the bottom.
+         *      c. bottom : moves the element away from the left side(to the right)
+         *      d. left   : moves the element away from the right side(to the left)
+         * 
+         *    - You can specify values in pixels, ems, or percentages, among others,
+         *      to dial in exactly how far you need the element to move. It's also
+         *      important to note that offset properties will not work if the element's
+         *      'position' property is the default 'static'. 
+         * 
+         *      .green-box {
+         *          background-color: green;
+         *          position: relative;
+         *          top: 50px;
+         *          left: 120px;
+         *       }
+         * 
+         *    - In this example above, the element of green-box class will be moved
+         *      down by 50px, and to the right 120px, from its default static position.
+         *      The green-box class is applied in HTML to the green box only.
+        */
+
+        /**
+         * 2. Position: Absolute
+         * - Absolute position removes the element from the normal document flow
+         * - The element positions itself relative to its nearest positioned parent
+         * - If no parent has position set, it positions relative to the document
+         * 
+         * Example:
+         * <div class="parent">
+         *     <div class="child">I'm absolute!</div>
+         * </div>
+         * 
+         * .parent {
+         *     position: relative;  /* Important! * /
+         *     width: 300px;
+         *     height: 200px;
+         *     background: #eee;
+         * }
+         * 
+         * .child {
+         *     position: absolute;
+         *     top: 20px;     /* 20px from top of parent * /
+         *     right: 30px;   /* 30px from right of parent * /
+         *     background: #ff0000;
+         * }
+         */
+
+
+        /**
+         * 2. Position: Absolute
+         *    - Another way of modifying the position of an element is by 
+         *      setting its position to 'absolute'.
+         *    - When an element's position is set to 'absolute', all other
+         *      elements on the page will ignore the element and act like it
+         *      is not present on the page. 
+         *    - The element will be positioned 'relative' to its closest
+         *      positioned parent element, while offset properties can be
+         *      used to determine the final position from there. 
+         *    - Always remember to set position: relative on the parent 
+         *      element.
+         * 
+         *    - Consider the example below:
+         * 
+         *      <div class="parent">
+         *          <div class="child">I'm absolute!</div>
+         *      </div>
+         * 
+         *      .parent {
+         *          position: relative;
+         *          width: 300px;
+         *          height: 200px;
+         *          background: #eee;
+         *      }
+         * 
+         *      .child {
+         *          position: absolute;
+         *          top: 20px;
+         *          right: 30px;
+         *          background: #ff0000;
+         *      }
+         * 
+         *    - In the above example, we have a parent div with position: relative
+         *      and a child div with position: absolute.
+         *    - The child div is positioned 20px from the top and 30px from the right
+         *      of its parent container, not the page.
+         *    - This happens because the parent has position: relative, making it the
+         *      positioning context for the absolutely positioned child.
+         *    - Without position: relative on the parent, the child would position
+         *      itself relative to the document body.
+        */
+
+        /**
+         * 3. Position: Fixed
+         *    - Fixed position is a type of positioning that permanently sticks
+         *      an element to a specific spot on the page
+         *    - When you scroll the page, this element won't move from its position
+         *    - To use it, we set position: fixed along with these properties:
+         *      a. top   : distance from top
+         *      b. bottom: distance from bottom
+         *      c. left  : distance from left
+         *      d. right : distance from right
+         * 
+         *      .title {
+         *          position: fixed;
+         *          top: 0px;    
+         *          left: 0px; 
+         *       }
+         * 
+         * Note: In the example above, the '.title' element will be permanently
+         *       fixed to the top-left corner of the page. No matter how much
+         *       you scroll, this element will stay in its position.
+        */
+
+        /**
+         * 4. Position: Sticky
+         *    - Sticky positioning is a feature that makes an element "stick" to a
+         *      specific position while scrolling
+         *    - It scrolls like normal elements, but when it reaches a specific
+         *      position (like top: 240px), it sticks there
+         * 
+         *    Example:
+         *      .box-bottom {
+         *          position: sticky;
+         *          top: 240px;
+         *          background-color: darkgreen;
+         *      }
+         * 
+         *    - In the above example:
+         *      1. The box will scroll normally
+         *      2. When the box reaches 240px from the top, it will stick there
+         *      3. The box will stay stuck until the parent container ends
+         *      4. After the parent container ends, the box will scroll normally
+         * 
+         *    Use Cases:
+         *    - To keep table headers visible while scrolling
+         *    - To make navigation menus stick to the top
+         *    - To keep important information always visible
+        */
+
+
+        /**
+         * Concept of Stacking Order and Z-Index Property:
+         * - Z-index is a property that tells how an element should appear on
+         *   the webpage - whether it should be on top or behind other elements.
+         * - Just like you can stack pieces of paper on top of each other, elements
+         *   can also overlap.
+         * 
+         * - By default, the element that comes later in the HTML code appears on
+         *   top.
+         * 
+         * - If you want to control which element appears on top, use z-index.
+         * - Z-index value is a number:
+         *   a. Higher number = element appears more on top
+         *   b. Example: An element with z-index: 10 will appear above an 
+         *              element with z-index: 5
+         * 
+         * Example:
+         *   .blue-box {
+         *       background-color: blue;
+         *       position: relative;
+         *       z-index: 1;
+         *   }
+         * 
+         *   .green-box {
+         *       background-color: green;
+         *       position: relative;
+         *       top: -170px;
+         *       left: 170px;
+         *   }
+         * 
+         * - In this example:
+         *   a. Blue box has relative position and z-index: 1
+         *   b. Green box has default z-index: 0
+         *   c. So blue box will appear above green box
+         * 
+         * Important Note:
+         * - Z-index only works when element's position is relative, absolute
+         *   or fixed
+         * - It doesn't work with static position
+        */
+
+        /**
+         * Concept of handling overflowing content:
+         * - When content exceeds the element's boundaries, it overflows.
+         * - To handle this, we use overflow property.
+         * - overflow property can have 4 values:
+         *   a. visible
+         *   b. hidden
+         *   c. scroll
+         *   d. auto
+         * 
+         * Do this exercise:
+        */
+
+        /**
+         * Summary:
+         * - After understanding float layouts, we now need more control.
+         *   That's where position comes in.
+         * - With float, things 'fight' for space and layout happens as a
+         *   side-effect whereas 'position' gives us absolute control over
+         *   element placement.
+         * - But even position has its limit - it's great for 1-2 elements
+         *   but not for responsive layouts. And this is why Flexbox and
+         *   Grid were created.
+         *   a. Float and Position: Old School layout tools (Manual)
+         *   b. Flexbox           : layout 1D stuff easily (row or column)
+         *   c. Grid              : Layout for 2D stuff easily (row and column)
+        */
+        
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Fixed Header -->
+    <div class="fixed-box">Fixed Position Header</div>
+
+    <!-- Relative Position Example -->
+    <div class="relative-box">Relative Position</div>
+
+    <!-- Absolute Position Example -->
+    <div class="parent">
+        <div class="child">Absolute Position</div>
+    </div>
+
+    <!-- Sticky Position Example -->
+    <div class="scroll-container">
+        <div class="sticky-box">Sticky Position</div>
+    </div>
+
+    <!-- Z-Index Example -->
+    <div class="blue-box">Blue Box (z-index: 1)</div>
+    <div class="green-box">Green Box (z-index: 0)</div>
+</body>
+</html>

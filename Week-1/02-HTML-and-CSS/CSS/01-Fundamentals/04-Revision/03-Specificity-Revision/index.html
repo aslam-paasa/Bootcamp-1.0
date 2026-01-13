@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Blank Template</title>
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="style.css">
+		<script>
+			/**
+			 * IDs:
+			 * - IDs are way of uniquely identifying an element so you
+			 *   can style it later on.
+			 *   => #idName
+			 *      |
+			 *      V
+			 *      Octathorpe/hashtag
+			 * - Using this '#', we can target our element directly.
+			 * - Only one id with the same value per document.
+			 * 
+			 * 
+			 *   <section>
+			 *      <p>Hello, Twitch!</p>
+			 *      <p id="zebra">Hello, Youtube!</p>
+			 *   </section>
+			 * 
+			 *   #zebra {
+			 *      color: red;
+			 *   }
+			 * 
+			 * 
+			 * Classes:
+			 * - Classes are for selecting multiple elements.
+			 * - Multiple with same value allowed per document.
+			 *   [.className]
+			 * 
+			 *   <section>
+			 *      <p class="robot">Hello, Twitch!</p>
+			 *      <p id="zebra" class="bob">Hello, Youtube!</p>
+			 *      <p class="bob"> Goodbye, Mixer!</p>
+			 *   </section>
+			 * 
+			 *   .bob {
+			 *      color: red;
+			 *   }
+			*/
+
+			/**
+			 * Specificity:
+			 * Q. Does it matter what do you choose for the ids or class
+			 *    name?
+			 * => No!
+			 * 
+			 * Q. When we are trying to determine if an element can override
+			 *    an element that came before in the cascade, how do we know
+			 *    that the below css rule can override the css rule above it?
+			 * 
+			 *    section > h2 {
+			 *        color: blue;
+			 *    }
+			 *
+			 *    article > h2 {
+			 *        color: red;
+			 *    }
+			 *
+			 *    section article h2 {
+			 *        color: orange;
+			 *    }
+			 * 
+			 * => The below css rule has greater weight or points.
+			 * => Let's check css rule points:
+			 *    a. Other !important, Inline Style    :  1000 points
+			 *    b. IDs                               :  100 points
+			 *    c. Classes                           :  10 points
+			 *    d. Tags                              :  1 point
+			 * 
+			 * Ex-1: Calculate Specificity
+			 *   <section>
+			 *      <p class="robot unicorn">Hello, Twitch!</p>
+			 *      <p id="zebra" class="bob">Hello, Youtube!</p>
+			 *      <p class="bob">Goodbye, Mixer!</p>
+			 *   </section>
+			 * 
+			 *  10 +  1 + 1 => 21 points of specificity
+			 *   p.robot.unicorn {
+			 *      color: red;
+			 *   }
+			 * 
+			 * Ex-2: Calculate Specificity
+			 *   <section id="dietCoke">
+			 *      <p class="robot unicorn">Hello, Twitch!</p>
+			 *      <p id="zebra" class="bob dominosPizza">Hello, Youtube!</p>
+			 *      <p class="bob">Goodbye, Mixer!</p>
+			 *   </section>	
+			 * 
+			 *     100    +   10            => 110 points of specificity
+			 *   #dietCoke  .dominosPizza {
+			 *      color: red;
+			 *   }
+			 * 
+			 *    10       +     1000       => 1010 points of specificity 
+			 *   .bob {
+			 *      color: red !important;
+			 *   }
+			 * */ 
+
+		</script>
+	</head>
+	<body>
+		<h1 id="hi">Hello</h1>
+		<section class="top">
+			<h2 id="rhino" class="africa fourLegs">Rhino</h2>
+			<h2 id="zebra" class="africa fourLegs">Zebra</h2>
+		</section>
+		<section class="middle">
+			<article>
+				<h2 id="uni">Unicorn</h2>
+				<h2 id="bestHouse" class="harryPotter triWizardChamp badger">Hufflepuff</h2>
+			</article>
+		</section>
+		<article class="areDucksDinosaurs">
+			<h2 class="likesToQuack fight1Or100">Duck</h2>
+		</article>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+/**
+  *
+  * transform: translate(), scale(), rotate(), skew()
+  *
+  *
+  */
+
+
+.wrapper {
+  width: 300px;
+  height: 300px;
+  border: 1px dashed red;
+  margin: 0 auto;
+}
+
+.inner {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+  transform: translate(100px, 100px);
+}

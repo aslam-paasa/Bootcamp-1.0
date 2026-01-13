@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Property: flex-direction</title>
+    <script>
+        /**
+         * flex-direction:
+         * - Flex direction have two axes:
+         *   a. main axis
+         *   b. cross axis
+         * 
+         * - By default, the main axis is horizontal and the cros axis is
+         *   vertical.
+        */
+
+        /**
+         * The main axis is used to position flex items with the following
+         * properties:
+         * 1. justify-content
+         * 2. flex-wrap
+         * 3. flex-grow
+         * 4. flex-shrink
+        */
+
+        /**
+         * The cross axis is used to position flex items with the following
+         * properties:
+         * 1. align-items
+         * 2. align-content
+        */
+
+        /**
+         * The main axis and cross axis are interchangeable. We can switch 
+         * them using 'flex-direction' property. If we add the flex-direction
+         * property and give it a value of 'column', the flex items will be
+         * ordered vertically, not horizontally.
+         * 
+         * The flex-direction property can accept four values:
+         * a. row:
+         *    Elements will be positioned from left to right across the
+         *    parent element starting from the top left corner (default).
+         * 
+         * b. row-reverse:
+         *    Elements will be positioned from right to left across the
+         *    parent element starting from top right corner.
+         * 
+         * c. column:
+         *    Elements will be positioned from top to bottom of the parent
+         *    element starting from the top left corner.
+         * 
+         * d. column-reverse:
+         *    Elements will be positioned from the bottom to the top of the
+         *    parent element starting from the bottom left corner.
+        */
+    </script>
+
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 1000px;
+        }
+
+        .item {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+    <body>
+        <div class='container'>
+            <div class='item'>
+                <h1>1</h1>
+            </div>
+            <div class='item'>
+                <h1>2</h1>
+            </div>
+            <div class='item'>
+                <h1>3</h1>
+            </div>
+            <div class='item'>
+                <h1>4</h1>
+            </div>
+            <div class='item'>
+                <h1>5</h1>
+            </div>
+        </div>
+
+        <script>
+            /**
+             * In the above example, the five divs will be positioned in a
+             * vertical column. All of these divs could fit in one 
+             * horizontal row. However, the column value tell the browser 
+             * to stack the divs one on top of the other.
+             * 
+             * So, till now we have seen that we can change the layout as
+             * we want with the help of flexbox, now we are going to see
+             * that how we can do the same with Grid.
+            */
+        </script>
+    </body>
+</html>

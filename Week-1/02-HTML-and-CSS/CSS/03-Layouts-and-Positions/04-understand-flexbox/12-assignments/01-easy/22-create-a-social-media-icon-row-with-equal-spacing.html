@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Social Media Icon Row</title>
+  <script>
+    /**
+     * Assignment-22: 
+     * Create a horizontal row of social media icons (like Facebook, Twitter,
+     * Instagram) with equal spacing between them using flexbox. 
+     * The icons should be equally spaced and centered horizontally.
+    */
+
+    /**
+     * What you'll learn:
+     * When we want to lay out items horizontally with equal spacing, flexbox
+     * is a perfect choice.
+     * a. Make the icon container a flex container with display: flex.
+     * b. Use justify-content: space-around or space-between to spread the
+     *    icons evenly.
+     * c. Style each icon box with size and color for better UI.
+    */
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f0f0f0;
+    }
+
+    .icon-row {
+      display: flex;
+      justify-content: space-around; /* Equal spacing between icons */
+      align-items: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      background-color: #007bff;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .icon:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="icon-row">
+    <div class="icon">F</div> <!-- Facebook -->
+    <div class="icon">T</div> <!-- Twitter -->
+    <div class="icon">I</div> <!-- Instagram -->
+  </div>
+
+</body>
+</html>

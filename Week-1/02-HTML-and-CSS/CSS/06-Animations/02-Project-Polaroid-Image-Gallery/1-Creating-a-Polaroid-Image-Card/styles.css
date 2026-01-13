@@ -1,0 +1,15 @@
+
+
+.polaroid-card {
+  display: inline-block;
+  background-color: #eee6d8;
+  padding: 10px;
+}
+
+.polaroid-card-caption {
+  text-align: center;
+  font-family: "Marker Felt",sans-serif;
+  font-size: 12px;
+  margin-top: 6px;
+  letter-spacing: 2px;
+}

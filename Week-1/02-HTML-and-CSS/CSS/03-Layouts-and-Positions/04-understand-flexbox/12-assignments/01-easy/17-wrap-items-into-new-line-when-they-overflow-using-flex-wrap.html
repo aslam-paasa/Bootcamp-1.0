@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <script>
+        /**
+         * Assignment-17: 
+         * Create a row of cards using flexbox and wrap them into new lines
+         * when they overflow the container using flex-wrap.
+        */
+
+        /**
+         * What you'll learn:
+         * 1. How flex-wrap helps in wrapping flex items onto multiple lines.
+         * 2. Why wrapping is useful for responsive layouts.
+         * 3. Difference between nowrap (default), wrap, and wrap-reverse.
+         * 
+         * Note: flex-wrap: wrap allows children to go to the next line when
+         *       there's no space left in the current line.
+        */
+    </script>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 350px;
+            border: 2px solid #555;
+            padding: 10px;
+        }
+
+        .item {
+            width: 100px;
+            height: 100px;
+            background-color: #7fb3d5;
+            margin: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Flex-Wrap: Wrap Items into New Line</h2>
+    <div class="container">
+        <div class="item">Box 1</div>
+        <div class="item">Box 2</div>
+        <div class="item">Box 3</div>
+        <div class="item">Box 4</div>
+        <div class="item">Box 5</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <script>
+        /**
+         * Assignment-4: 
+         * Create a single box inside a flex container. Use flexbox to:
+         * a. Center the box horizontally
+         * b. Center the box vertically
+         * c. Keep the container height as full screen
+        */
+
+        /**
+         * What you'll learn:
+         * 1. The classic flexbox centering trick for modals, popups, hero
+         *    sections, etc.
+         * 2. How to center anything inside a full-page container using:
+         *    justify-content: center; => centers it horizontally
+         *    align-items: center;     => centers it vertically
+         * 3. A clean technique without using margins and positioning hacks.
+         * 
+         * Note: To make the container full height, use: height: 100vh;
+         *       This gives you 100% of the viewport height.
+        */
+    </script>
+    <style>
+        /* Full-screen flex container */
+        .flex-container {
+            display: flex;
+            /* Enable Flexbox */
+            justify-content: center;
+            /* Horizontal center */
+            align-items: center;
+            /* Vertical center */
+            height: 100vh;
+            /* Full viewport height */
+            background-color: #f3f3f3;
+            border: 3px dashed #aaa;
+        }
+
+        /* Single centered box */
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: #6a0dad;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            /* Optional: center text */
+            align-items: center;
+            /* Optional: center text */
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="box">Hello!</div>
+    </div>
+</body>
+
+</html>

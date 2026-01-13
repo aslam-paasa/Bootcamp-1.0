@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Align Self Example</title>
+    <script>
+        /**
+         * 
+        */
+    </script>
+    <style>
+        .flex-container {
+            display: flex;
+            height: 200px;
+            border: 2px solid #444;
+            align-items: center;
+            /* all children centered by default */
+            padding: 10px;
+            gap: 10px;
+        }
+
+        .box {
+            width: 100px;
+            height: 50px;
+            background-color: #3498db;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .different {
+            align-self: flex-end;
+            /* only this one is pushed to bottom */
+            background-color: #e67e22;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Align a single item differently with align-self</h2>
+
+    <div class="flex-container">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box different">Box 3</div> <!-- Aligned to bottom -->
+        <div class="box">Box 4</div>
+    </div>
+
+</body>
+</html>

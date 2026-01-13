@@ -1,0 +1,16 @@
+.container {
+  border: 1px solid black;
+  height: 600px;
+  width: 600px;
+}
+
+.box {
+  background-color: olive;
+  width: 50%;
+  height: 50%;
+}
+
+p {
+  font-size: 40px;
+  line-height: 200%;
+}

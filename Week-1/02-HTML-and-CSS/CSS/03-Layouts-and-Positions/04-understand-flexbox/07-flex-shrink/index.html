@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Property: flex-shrink</title>
+    <script>
+        /**
+         * flex-shrink: (main axis)
+         * - Just as the flex-grow property proportionally stretches flex items,
+         *   the flex-shrink property can be used to specify which elements
+         *   will shrink and in what proportions.
+        */
+    </script>
+
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .side {
+            width: 100px;
+            flex-shrink: 1;
+        }
+
+        .center {
+            width: 100px;
+            flex-shrink: 2;
+        }
+    </style>
+</head>
+    <body>
+        <div class='container'>
+            <div class='side'>
+                <h1>I’m on the side of the flex container!</h1>
+            </div>
+            <div class='center'>
+                <h1>I'm in the center of the flex container!</h1>
+            </div>
+            <div class='side'>
+                <h1>I'm on the other side of the flex container!</h1>
+            </div>
+        </div>
+
+        <script>
+            /**
+             * In this above example, the .center div will shrink twice as
+             * much as the .side divs if the .container div is too small
+             * to fit the elements within it, the content is 60px too large
+             * for the flex container that surrounds it, the .center div
+             * will shrink by 30px and the outer divs will shrink by 15px
+             * each. Margins are unaffected by the flex-grow or flex-shrink.
+            */
+        </script>
+    </body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Blank Template</title>
+		<!-- external CSS link -->
+		<link rel="stylesheet" href="style.css">
+		<script>
+			/**
+			 * Relationship Selectors:
+			 * Q. How do we target specific element?
+			 * => We can use things called classes/Ids. [Later]
+			 * 
+			 * 1. Parent-Child relationship:
+			 * => We can select an element that is direct descendant of
+			 *    another element, use:
+			 *    parent > child
+			 * 
+			 * => Whenever we have a tag inside another tag, we call 
+			 *    that a relationship. And the below example is 
+			 *    parent-child relationship.
+			 * 
+			 * => Parent-Child relationship just means that one tag 
+			 *    i.e. child is inside of another tag i.e. parent.
+			 * => We can target all the paragraphs on the page by just
+			 *    selecting a paragraph, but what if we just want to
+			 *    select a paragraph that is inside of <section> tag?
+			 *    - Parent-Child relationship.
+			 * 
+			 * => Ex: Direct parent-child relationship:
+			 *    <section>
+			 *       <p>Hello, Twitch!</p>
+			 *    </section>
+			 * 
+			 *    section > p {
+			 *       color: red;
+			 *    }
+			 * 
+			 * 2. Indirect child relationship:
+			 *    This paragraph is direct child of article. This paragraph
+			 *    however is a child of section, but not a direct child but
+			 *    grandchild.
+			 * 
+			 *    We have section + space + p, and when we have space then 
+			 *    it doesn't matter how deep that paragraph is nested, it
+			 *    will still work if there is somewhere up the chain, a section
+			 *    that it is inside of.
+			 *  
+			 *    <section>
+			 *       <article>
+			 *          <p>Hello, Twitch!</p>
+			 *       </article>
+			 *    </section>
+			 * 
+			 *    section  p {
+			 *       color: red;
+			 *    }
+			 * 
+			 * 3. Sibling Relationship:
+			 * => To select an element that is the next sibling, use:
+			 *    - previous sibling + next sibling
+			 * 
+			 * => Below code means, find me the paragraph whose immediate sibling
+			 *     was a paragraph. This would make 'Hello, Youtube!' red-color,
+			 *     but not 'Hello, Twitch!', because 'Hello, Twitch!' doesn't
+			 *     have a paragraph sibling that's above it.
+			 * 
+			 *    <section>
+			 *       <p>Hello, Twitch!</p>
+			 * 		 <p>Hello, Youtube!</p>
+			 *    </section>
+			 * 
+			 *    p + p {
+			 *       color: red;
+			 *    }
+			 * 
+			 * => 'p + p' is targetting direct sibling i.e. next sibling.
+			*/
+
+			/**
+			 * There are some other ways to select an element: [Demo]
+			 * a. Classes
+			 * b. IDs
+			 * 
+			 * IDs:
+			 * - IDs are way of uniquely identifying an element so you
+			 *   can style it later on.
+			 *   => #idName
+			 *      |
+			 *      V
+			 *      Octathorpe/hashtag
+			 * - Using this '#', we can target our element directly.
+			 * - Only one id with the same value per document.
+			 * 
+			 * 
+			 *   <section>
+			 *      <p>Hello, Twitch!</p>
+			 *      <p id="zebra">Hello, Youtube!</p>
+			 *   </section>
+			 * 
+			 *   #zebra {
+			 *      color: red;
+			 *   }
+			 * 
+			 * - But a lot of time, I want to target multiple elements
+			 *   at the same time, but I don't want to constantly
+			 *   targeting elements. So, we have something is css called
+			 *   'classes'.
+			 * 
+			 * Class:
+			 * - Classes are way of targeting multiple elements at the
+			 *   same time using '.className'.
+			 * 
+			 *   <section>
+			 *      <p class="robot">Hello, Twitch!</p>
+			 *      <p id="zebra" class="bob">Hello, Youtube!</p>
+			 *      <p class="bob">Goodbye, Mixer!</p>
+			 *   </section
+			 * 
+			 *   .bob {
+			 *      color: red;
+			 *   }
+			*/
+
+			/**
+			 * Specificity:
+			 * Q. Does it matter what do you choose for the ids or class
+			 *    name?
+			 * => No!
+			 * 
+			 * Q. When we are trying to determine if an element can override
+			 *    an element that came before in the cascade, how do we know
+			 *    that the below css rule can override the css rule above it?
+			 * 
+			 *    section > h2 {
+			 *        color: blue;
+			 *    }
+			 *
+			 *    article > h2 {
+			 *        color: red;
+			 *    }
+			 *
+			 *    section article h2 {
+			 *        color: orange;
+			 *    }
+			 * 
+			 * => The below css rule has greater weight or points.
+			 * => Let's check css rule points:
+			 *    a. Other !important, Inline Style    :  1000 points
+			 *    b. IDs                               :  100 points
+			 *    c. Classes                           :  10 points
+			 *    d. Tags                              :  1 point
+			 * 
+			 * Q. How many classes our selector need to override an ID?
+			 * => 10 classes to override an ID.
+			 * => It's very hard to override stuff in the cascade if we are
+			 *    throwing around IDs.
+			 * 
+			 * Cascade help use to keep our code DRY. 
+			 *    article > h2 {
+			 *        color: red;
+			 *        font-weight: bold;
+			 *        font-size: 30px;
+			 *    }
+			 *
+			 *    section article h2 {
+			 *        color: orange;
+			 *    }
+			 * - All my h2's code have font red, weight bold, and font
+			 *   size 30px. But there is one scenario where I want this
+			 *   one specific h2 to be something different, we don't have
+			 *   to re-write the entire rules but just override the color
+			 *   change.
+			 * 
+			 * - Specificity enable us to target specific elements but it
+			 *   also enables us to if we need to use the cascade to our
+			 *   benefit to make those changes we want without having to
+			 *   rewrite everything over and over again.
+			 * 
+			 * Ex-1: How many points of specificity does this selector have?
+			 *    <section>
+			 *       <p>Hello, Twitch!</p>
+			 *       <p>Hello, Youtube!</p>
+			 *    </section>
+			 * 
+			 *    p + p {
+			 *       color: red;
+			 *    }
+			 * 
+			 * => 2 points of specificity: Two tags == 2 points
+			 *   
+			 * 
+			 * Ex-2: How many points of specificity does this selector have? 
+			 *    <section>
+			 *       <p>Hello, Twitch!</p>
+			 *       <p id="zebra">Hello, Youtube!</p>
+			 *    </section>
+			 * 
+			 *    #zebra {
+			 *       color: red;
+			 *    }
+			 * 
+			 * => 100 points of specificity.
+			 * 
+			 * Ex-3: How many points of specificity does this selector have? 
+			 *    <section>
+			 *       <p class="robot">Hello, Twitch!</p>
+			 *       <p id="zebra" class="bob">Hello, Youtube!</p>
+			 *       <p class="bob">Goodbye, Mixer!</p>
+			 *    </section>
+			 * 
+			 *    section .bob {
+			 *       color: red;
+			 *    }
+			 * 
+			 * => 10 + 1 => 11 points of specificity
+			 * 
+			 * Q. If we look at the above code block, how many elements 
+			 *    became red?
+			 * => Two elements:
+			 *    a. <p id="zebra" class="bob">Hello, Youtube!</p>
+			 *    b. <p class="bob">Goodbye, Mixer!</p>
+			 * 
+			 * Q. Why it is really bad idea to use inline style?
+			 * => It's next to impossible to override.
+			 */ 
+		</script>
+	</head>
+	<body>
+		<h1>Hello</h1>
+		<section>
+			<h2>World</h2>
+			<h2>Zebra</h2>
+		</section>
+		<section>
+			<article>
+				<h2>Unicorn</h2>
+			</article>
+		</section>
+		<article>
+			<h2>Duck</h2>
+		</article>
+	</body>
+</html>

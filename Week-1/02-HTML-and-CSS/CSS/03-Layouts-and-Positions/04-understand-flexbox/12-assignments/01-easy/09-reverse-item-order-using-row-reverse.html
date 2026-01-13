@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <script>
+        /**
+         * Assignment-10: 
+         * Create a horizontal flex container with 3 boxes inside. Use
+         * flex-direction: row-reverse so that:
+         * a. First item sticks to the right    
+         * b. Last item sticks to the left
+         * c. Middle item is centered
+        */
+
+        /**
+         * What you'll learn:
+         * 1. How to use flex-direction: row-reverse to reverse the order
+         *    of items in a horizontal flex container
+         * 2. The power of flexbox's default alignment
+         * 3. How to use flexbox to create a simple layout with 3 items
+         * 
+         * Note: The HTML order doesn't change, but the layout does.
+        */
+
+    </script>
+    <style>
+        .flex-container {
+            display: flex;
+            flex-direction: row-reverse;
+            border: 2px solid #555;
+            padding: 10px;
+        }
+
+        .box {
+            width: 60px;
+            height: 60px;
+            background-color: #4caf50;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+.hero {
+  height: 90vh;
+  background-color: #f08e80;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 24px 32px;
+}
+
+.navbar .links a {
+  color: white;
+  text-decoration: none;
+  margin-right: 16px;
+  font-size: 1.2rem;
+}
+
+.navbar p {
+  font-size: 2rem;
+  font-weight: bold;
+}

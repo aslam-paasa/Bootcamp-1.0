@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <script>
+        /**
+         * Assignment-18: 
+         * Create a row of cards using flexbox and prevent them from wrapping
+         * into new lines using flex-wrap: nowrap even if they overflow the
+         * container.
+        */
+
+        /**
+         * What you'll learn:
+         * flex-wrap: nowrap makes children stay on one line even if they 
+         * overflow the container.
+         * a. All boxes are in one row.
+         * b. Even if they don't fit the screen, they won't wrap to a new line.
+         * c. You can scroll horizontally if overflow-x: auto is added.
+        */
+    </script>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: nowrap; /* Key property */
+            border: 2px solid #444;
+            overflow-x: auto; /* Optional: allows horizontal scroll */
+        }
+
+        .box {
+            flex: 0 0 200px; /* Fixed width for demo */
+            height: 100px;
+            margin: 10px;
+            background-color: salmon;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>No Wrap Flex Items</h2>
+
+    <div class="container">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+        <div class="box">Box 4</div>
+        <div class="box">Box 5</div>
+        <div class="box">Box 6</div>
+        <div class="box">Box 7</div>
+        <div class="box">Box 8</div>
+        <div class="box">Box 9</div>
+        <div class="box">Box 10</div>
+    </div>
+</body>
+
+</html>

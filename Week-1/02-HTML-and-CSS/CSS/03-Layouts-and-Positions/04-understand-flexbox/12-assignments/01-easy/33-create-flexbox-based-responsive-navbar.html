@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Flex Navbar</title>
+    <script>
+        /**
+         * Assignment Question:
+         * Create a responsive navigation bar using flexbox that adjusts
+         * layout based on screen size.
+         * a. On large screens, display the nav items horizontally.
+         * b. On small screens, stack the nav items vertically.
+         * c. Include a logo, and 4 nav links: Home, About, Services, Contact.
+         * d. Add hover effects on nav items.
+        */
+
+        /**
+         * Explanation:
+         * In this assignment, you're going to learn how to:
+         * a. Use display: flex to align logo and navigation links.
+         * b. Use justify-content and align-items to space items properly.
+         * c. Add media queries to make it responsive.
+         * d. Learn the mobile-first approach.
+         * 
+         * Real-world use: This is the base of almost every website header.
+         * Mastering this will help you build modern, mobile-friendly navbars!
+        */
+
+        /**
+         * Note:
+         * a. Shrink your browser window and watch the layout change.
+         * b. Try adding a hamburger menu for extra challenge.
+        */
+    </script>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar .nav-links a:hover {
+            color: #f0a500;
+        }
+
+        /* Media Query for large screens */
+        @media (min-width: 768px) {
+            .navbar {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .navbar .nav-links {
+                flex-direction: row;
+                gap: 2rem;
+                margin-bottom: 0;
+            }
+
+            .navbar .logo {
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">MySite</div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+
+</body>
+</html>

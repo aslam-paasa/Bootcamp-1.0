@@ -1,0 +1,23 @@
+h1 {
+  font-size: 6rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+p {
+  font-size: 2rem;
+}
+
+.pixels h1 {
+  font-size: 96px;
+}
+
+.pixels h2 {
+  font-size: 64px;
+}
+
+.pixels p {
+  font-size: 32px;
+}

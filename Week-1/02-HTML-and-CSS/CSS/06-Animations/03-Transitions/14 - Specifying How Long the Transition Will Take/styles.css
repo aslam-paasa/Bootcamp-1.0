@@ -1,0 +1,27 @@
+
+
+
+/**
+  *
+  * transition-duration: time value -> second or millisecond =  s | ms
+  * e.g transition-duration: 3s;
+  * e.g transition-duration: 400ms;
+  *
+  *
+  */
+
+
+.transition {
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  background-color: red;
+  transition-property: width, height, background-color;
+  transition-duration: 2s, 3s, 400ms;
+}
+
+.transition:hover {
+  width: 200px;
+  height: 100px;
+  background-color: blue;
+}

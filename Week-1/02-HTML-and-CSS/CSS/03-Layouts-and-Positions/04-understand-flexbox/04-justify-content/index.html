@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Property: justify-content</title>
+    <script>
+        /**
+         * Flexbox Container:
+         * +----------------------------------------------+ CStart
+         * |                                              |   +
+         * |                                              |   |
+         * |                                              |   |
+         * |                                              |   |
+         * |                                              |   +
+         * +----------------------------------------------+ CEnd
+         * 
+         * MStart +-------------------------------------+ MEnd
+         * 
+         * 1. Main Axis: From left to right.
+         * 2. Cross Axis: From top to bottom.
+         * 
+         * Note: By default, all the child elements in flex are on main axis.
+         *       Meaning, all the child elements are in a row. 
+         *       (next to each other)
+        */
+
+        /**
+         * justify-content: (main axis)
+         * - When we changed the 'display' value of parent containers to
+         *   flex or inline-flex, all of the child elements(flex items) 
+         *   moved toward the upper left corner of the parent container.
+         *   This is the default behavior of flex containers and their
+         *   children.
+        */
+
+        /**
+         * Below are the five commonly used values for the 'justify-content':
+         * a. flex-start: 
+         *    All items will be positioned in order, starting from
+         *    the left of the parent container, with no extra space between or
+         *    before them.
+         * 
+         * b. flex-end: 
+         *    All items will be positioned in order, with the last item starting
+         *    on the right side of the parent container, with no extra space
+         *    between or after them.
+         * 
+         * c. center: All items will be positioned in order, in the center of the
+         *    parent container with no extra space before, between, or after them.
+         * 
+         * d. space-around: Items will be positioned with equal space before and
+         *    after each item, resulting in double the space between elements.
+         * 
+         * e. space-between: Items will be positioned with equal space between
+         *    them, but no extra space before the first or after the last items.
+        */
+    </script>
+
+    <style>
+        .container {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .box {
+            background-color: blue;
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+        }
+    </style>
+</head>
+    <body>
+        <h1>Display: Flex</h1>
+        <div class='container' id='flex'>
+            <div class='box'>
+                <h2>1</h2>
+            </div>
+            <div class='box'>
+                <h2>2</h2>
+            </div>
+            <div class='box'>
+                <h2>3</h2>
+            </div>
+        </div>
+
+        <script>
+            /**
+             * In the above example, we set the value of justify-content to
+             * flex-end. This will cause all of the flex items to shift to
+             * the right side of the flex container.
+            */
+        </script>
+    </body>
+</html>

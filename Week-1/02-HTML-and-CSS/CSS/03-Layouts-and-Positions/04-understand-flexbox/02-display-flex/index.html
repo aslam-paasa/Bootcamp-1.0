@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating flex container</title>
+    <script>
+        /**
+         * Creating flex container using display: flex
+         * - Any element can be a flex container.
+         * - Flex containers are helpful tools for creating websites that
+         *   respond to changes in screen sizes.
+         * - Child elements of flex containers will change size and location
+         *   in response to the size and position of their parent container.
+         * 
+         * - For an element to become a flex container, its 'display' property
+         *   must be set to 'flex'. 
+        */
+    </script>
+
+    <style>
+        .container {
+            background-color: whitesmoke;
+            display: flex;
+        }
+
+        .box {
+            background-color: blue;
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Display: Flex</h1>
+    <div class='container' id='flex'>
+        <div class='box'>
+            <h2>1</h2>
+        </div>
+        <div class='box'>
+            <h2>2</h2>
+        </div>
+        <div class='box'>
+            <h2>3</h2>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * - In the example above, all divs with the class 'container' are flex
+         *   containers. 
+         * - If they have children, the children are flex items.
+         * 
+         * - A div with the declaration display: flex, will remain block level.
+         *   No other elements will appear on the same line as it. However, it
+         *   will change the behavior of its child elements. Child elements
+         *   will not begin on new lines.
+        */
+    </script>
+
+</body>
+</html>

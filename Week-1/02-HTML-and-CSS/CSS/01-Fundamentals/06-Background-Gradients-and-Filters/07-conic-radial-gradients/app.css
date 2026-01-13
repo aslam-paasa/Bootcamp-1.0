@@ -1,0 +1,8 @@
+.box {
+  border: 2px solid black;
+  height: 700px;
+  width: 400px;
+  /* background-image: radial-gradient(circle at bottom, cyan 60%, pink, yellow); */
+  /* background-image: conic-gradient(cyan, yellow, magenta, cyan); */
+  background-image: repeating-linear-gradient(45deg, blue, red 10%);
+}

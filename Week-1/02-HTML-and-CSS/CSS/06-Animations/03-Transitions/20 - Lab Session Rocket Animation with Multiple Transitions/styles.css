@@ -1,0 +1,19 @@
+
+
+
+.container {
+  width: 800px;
+  margin: 40px auto;
+}
+
+.rocket {
+  width: 50px;
+  text-align: center;
+  font-size: 50px;
+  transition: transform 0.5s, margin-left 1.2s cubic-bezier(0.18, 0.89, 0.32, 1.28) 0.5s;
+}
+
+.container:hover .rocket {
+  transform: rotate(45deg);
+  margin-left: 500px;
+}

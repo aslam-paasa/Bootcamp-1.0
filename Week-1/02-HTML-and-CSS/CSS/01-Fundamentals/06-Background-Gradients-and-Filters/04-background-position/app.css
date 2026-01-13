@@ -1,0 +1,8 @@
+.box {
+  border: 1px solid red;
+  height: 400px;
+  width: 200px;
+  background-image: url("images/woman.jpg");
+  background-size: cover;
+  background-position: left bottom;
+}

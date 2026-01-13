@@ -1,0 +1,34 @@
+@media only screen and (max-width: 480px) {
+  body {
+    background-color: red;
+  }
+  body::before {
+    content: "MOBILE SIZE";
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  body {
+    background-color: orange;
+  }
+  body::before {
+    content: "TABLET SIZE";
+  }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  body {
+    background-color: yellow;
+  }
+  body::before {
+    content: "SMALL DESKTOP SIZE";
+  }
+}
+
+@media only screen and (min-width: 1025px) {
+  body {
+    background-color: green;
+  }
+  body::before {
+    content: "LARGE DESKTOP SIZE";
+  }
+}

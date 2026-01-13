@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Property: align-items</title>
+    <script>
+        /**
+         * Flexbox Container:
+         * +----------------------------------------------+ CStart
+         * |                                              |   +
+         * |                                              |   |
+         * |                                              |   |
+         * |                                              |   |
+         * |                                              |   +
+         * +----------------------------------------------+ CEnd
+         * 
+         * MStart +-------------------------------------+ MEnd
+         * 
+         * 1. Main Axis : From left to right.
+         * 2. Cross Axis: From top to bottom.
+         * 
+         * Note: By default, all the child elements in flex are on main axis.
+         *       Meaning, all the child elements are in a row. 
+         *       (next to each other)
+        */
+
+        /**
+         * align-items: (cross axis)
+         * - It is also possible to align flex items vertically within the container.
+         * - The 'align-items' property makes it possible to space flex items 
+         *   vertically within the container
+        */
+
+        /**
+         * Align-Item Properties:
+         * a. flex-start: 
+         *    All the elements will be positioned at the top of the parent
+         *    container.
+         * 
+         * b. flex-end:
+         *    All the elements will be positioned at the bottom of the parent.
+         * 
+         * c. center:
+         *    The center of all elements will be positined halfway between the
+         *    top and bottom of the parent container.
+         * 
+         * d. baseline:
+         *    The bottom of the content of all items will be aligned with each
+         *    other.
+         * 
+         * e. stretch:
+         *    If possible, the items will stretch from top to bottom of the 
+         *    container(this is the default value; elements with a specified
+         *    height will not stretch; elements with minimum height or no
+         *    height specified with stretch).
+        */
+    </script>
+
+    <style>
+        .container {
+            background-color: whitesmoke;
+            height: 200px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+
+        .box {
+            background-color: blue;
+            width: 50px;
+            height: 50px;
+            margin: 10px;
+        }
+    </style>
+</head>
+    <body>
+        <h1>Display: Flex</h1>
+        <div class='container' id='flex'>
+            <div class='box'>
+                <h2>1</h2>
+            </div>
+            <div class='box'>
+                <h2>2</h2>
+            </div>
+            <div class='box'>
+                <h2>3</h2>
+            </div>
+        </div>
+
+        <script>
+            /**
+             * In the above example, 
+             * 1. We set the value of justify-content to flex-end. This will
+             *    cause all of the flex items to shift to the right side of
+             *    the flex container.
+             * 2. We set the align-items property to flex-end that has sent
+             *    the child elements in the bottom of the container.
+            */
+        </script>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <script>
+        /**
+         * Assignment-12: 
+         * Create a flex container with 3 boxes inside. Use
+         * align-items: stretch so that they take the full height of the 
+         * container.
+        */
+
+        /**
+         * What you'll learn:
+         * 1. How to use align-items: stretch in flexbox.
+         * 2. How stretching affects child elements inside a container.
+         * 3. The default behavior of items when no height is specified.
+        */
+
+        /**
+         * Output Behavior:
+         * 1. All 3 items stretch vertically to match the container's height.
+         *    (200px).
+         * 2. Equal height, even if content inside is small.
+        */
+    </script>
+    <style>
+        .container {
+            display: flex;
+            align-items: stretch; /* Stretch items to full height */
+            height: 200px;
+            border: 2px solid black;
+        }
+
+        .item {
+            flex: 1;
+            margin: 5px;
+            background-color: lightcoral;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2</div>
+        <div class="item">Item 3</div>
+    </div>
+</body>
+
+</html>
