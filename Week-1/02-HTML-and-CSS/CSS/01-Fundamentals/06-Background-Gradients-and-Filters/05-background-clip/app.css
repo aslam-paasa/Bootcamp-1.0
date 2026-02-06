@@ -1,8 +1,0 @@
-.box {
-  border: 20px dashed red;
-  height: 400px;
-  width: 400px;
-  background-image: url("images/woman.jpg");
-  padding: 30px;
-  background-clip: content-box;
-}
