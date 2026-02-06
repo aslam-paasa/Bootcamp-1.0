@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API</title>
+    <link rel="stylesheet" href="23-index.css">
+</head>
+<body>
+    <div id="animalData"></div>
+    <button onclick="getAnimalData()">Get animal data</button>
+
+    <script>
+        
+        /**
+         * Way-1: fetch() api method
+        */
+         
+         function getAnimalData() {
+             fetch("https://fakerapi.it/api/v1/persons")
+                 .then(function(response) {
+                     response.json()
+                         .then(function(finalData) {
+                            document.getElementById("animalData").innerHTML = JSON.stringify(finalData);
+                             console.log(finalData);
+                         })
+                 })
+         }
+
+    </script>
+</body>
+</html>
