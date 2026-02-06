@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        /**
+         * Display Property:
+         * - Every HTML element is like a box.
+         * - The 'display' property tells how this box should behave
+         * - By default, all elements are 'inline'
+         * 
+         * This one's the actual base of layout. It tells the browser:
+         * - "How should this element behave in the layout flow?"
+        */ 
+        
+        /**
+         * Two Types of Elements:
+         * 1. Block Elements:  (Already learned)
+         *    - Take full width
+         *    - Only one element per line
+         *    - Ex: <div>, <p>, <h1> to <h6>
+         * 
+         * 2. Inline Elements: (Display Property)
+         *    - Take only as much space as needed
+         *    - Multiple elements can be in one line
+         *    - Ex: <span>, <a>, <strong>, <em>
+         * 
+         * Note: We have already learned how the box should be positioned,
+         * and now we will learn, how the box should be behave in layout.
+        */ 
+       
+        /**
+         * Display Properties and their behaviors:
+         * 1. Main Display Types:
+         *    - display: inline       : Takes full width, starts on new line
+         *    - display: block        : Takes only as much space as needed, flow inside lines
+         *    - display: inline-block : Like inline but respects height and width
+         * 
+         * 2. Other Display Types (Not covered in this week):
+         *    - display: flex  :  Makes it a flex container
+         *    - display: grid  :  Makes it a grid container
+         *    - display: none  :  Hides the element
+        */ 
+        
+        /**
+         * 1. Display: inline
+         *    - Element takes only the space it needs
+         *    - Cannot set height and width
+         *    - Multiple elements can be in one line
+         * 
+         * Example:
+         * <div class="rhombus">
+         *    <p>I'm a rhombus</p>
+         * </div>
+         * <div class="rhombus">
+         *    <p>So am I!</p>
+         * </div>
+         * <div class="rhombus">
+         *    <p>Me too!</p>
+         * </div>
+         * 
+         * .rhombus {
+         *    display: inline;
+         *    width: 200px;      [does not work]
+         *    height: 200px;    [does not work]
+         *    background-color: lightblue;
+         * }
+         * 
+         * - This code makes <div> inline
+         * - <div> takes only the space its text needs
+         * - Displays in the same line as surrounding text
+         */
+
+        /**
+         * 2. Display: block
+         *    - Takes full width of parent container
+         *    - Forces line break after element
+         *    - Can set height and width
+         * 
+         * Example:
+         * <div class="square">
+         *    <p>I'm a square</p>
+         * </div>
+         * <div class="square">
+         *    <p>So am I!</p>
+         * </div>
+         * <div class="square">
+         *    <p>Me too!</p>
+         * </div>
+         * 
+         * 
+         * .square {
+         *    display: block;
+         *    width: 200px;
+         *    height: 200px;
+         *    background-color: lightblue;
+         * }
+         * 
+         * - This code makes <div> block
+         * - <div> takes full width of parent container
+         * - Forces line break after element
+         * - Can set height and width
+        */
+
+        /**
+         * 3. Display: inline-block
+         *    - Behaves like inline but allows setting height and width
+         *    - Multiple elements can be in one line
+         * 
+         * Example:
+         * <div class="reactangle">
+         *    <p>I'm a rectangle</p>
+         * </div>
+         * <div class="reactangle">
+         *    <p>So am I!</p>
+         * </div>
+         * <div class="reactangle">
+         *    <p>Me too!</p>
+         * </div>
+         * 
+         * 
+         * .reactangle {
+         *    display: inline-block;
+         *    width: 200px;
+         *    height: 300px;
+         *    background-color: lightblue;
+         * }
+         * 
+         * - This code makes <div> inline-block
+         * - <div> behaves like inline but allows setting height and width
+         * - Multiple elements can be in one line
+        */
+
+        /**
+         * Summary:
+         * - Block elements take full width, force line breaks, and can set 
+         *   height/width.
+         * - Inline elements take only needed space, cannot set height/width, 
+         *   can be in same line.
+         * - Inline-block elements behave like inline but allow setting height 
+         *   and width
+        */ 
+    </script>
+</head>
+<body>
+    <h1>Display Property</h1>
+    <h2>Inline Elements</h2>
+    
+    <!-- Inline Elements Example -->
+    To learn more about <em>inline</em> elements, read <a href="#">MDN documentation</a>.
+
+
+    <h2>Block Elements</h2>
+    <!-- Block Elements Example -->
+    <div class="square">
+        <p>I'm a square</p>
+    </div>
+    <div class="square">
+        <p>So am I!</p>
+    </div>
+    <div class="square">
+        <p>Me too!</p>
+    </div>
+
+
+
+    <h2>Inline-Block Elements</h2>
+    <!-- Inline-Block Elements Example -->
+    <div class="rectangle">
+        <p>I'm a rectangle</p>
+    </div>
+    <div class="rectangle">
+        <p>So am I!</p>
+    </div>
+    <div class="rectangle">
+        <p>Me too!</p>
+    </div>
+</body>
+</html>

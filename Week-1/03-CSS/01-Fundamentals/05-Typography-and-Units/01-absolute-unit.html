@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Absolute Unit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <style>
+        /* Absolute Unit: Always 24px, regardless of the parent */
+        .px-text {
+            font-size: 24px;
+        }
+
+        .pt-text {
+            font-size: 18pt;
+        }
+
+        .cm-text {
+            font-size: 1cm;
+        }
+    </style>
+
+    <script>
+        /**
+         * Typography & Units:
+         * > Typography is a crucial aspect of web design, affecting
+         *   readability, aesthetics, and user experience.
+         *   - Absolute vs Relative Units
+         *   - Line Height, Letter Spacing, and Font Stacks
+        */
+
+        /**
+         * Absolute vs Relative Units in CSS
+         * > CSS units define how sizes are measured for fonts, margings,
+         *   padding, and other elements.
+        */
+
+        /**
+         * 1. Absolute Units (Fixed Size)
+         *    - These units do not change based on the screen size or parent elements.
+         *    - Units   :   Description
+         *      a. px   :   Pixels (most commonly used, but not scalable)
+         *      b. pt   :   Points (used in print, 1 pt = 1/72 inch)
+         *      c. pc   :   Picas  (used in typography, 1 pc = 12 pt)
+         *      d. in   :   Inches (1in = 96px)
+         *      e. cm   :   Centimeters (1cm = 37.8px)
+         *    - When to use?
+         *      > When you need fixed sizes (e.g., small icons, borders)
+         *      > Avoid px for font sizes in responsive designs.
+        */
+    </script>
+</head>
+
+<body>
+    <h2>Absolute Units (Fixed)</h2>
+
+    <p class="px-text">This text is 24px (absolute)</p>
+    <p class="pt-text">This text is 18pt (absolute)</p>
+    <p class="cm-text">This text is 1cm (absolute)</p>
+</body>
+
+</html>

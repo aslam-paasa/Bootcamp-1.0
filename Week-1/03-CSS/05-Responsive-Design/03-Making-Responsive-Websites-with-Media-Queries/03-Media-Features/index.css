@@ -1,0 +1,36 @@
+h1 {
+  font-size: 3rem;
+}
+
+/* @media only print {
+  h1 {
+    font-size: 10rem;
+  }
+} */
+
+body {
+  background-color: red;
+}
+
+@media only screen and (orientation: portrait) {
+  body {
+    background-color: yellow;
+  }
+  h1::before {
+    content: "portrait";
+  }
+}
+@media only screen and (orientation: landscape) {
+  body {
+    background-color: blue;
+  }
+  h1::before {
+    content: "landscape";
+  }
+}
+/* 
+@media only screen and (min-width: 800px) {
+  body {
+    background-color: orange;
+  }
+} */

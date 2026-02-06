@@ -1,0 +1,40 @@
+
+
+  /**
+    *
+    * scale -> resize elements in 2d space
+    * transform: scale(); -> syntax
+    * - scale(sx, sy);
+    * - scale(sx);
+    * - scaleX(sx);
+    * - scaleY(sy);
+    * sx -> the amount of resize of the element in horizontal direction - numbers(int, zero, decimals)
+    * sy -> the amount of resize of the element in vertical direction - numbers(int, zero, decimals)
+    * sx,sy = [0,1] -> decreasing the size
+    * sx,sy > 1 -> increasing the size
+    *
+    */
+
+  .wrapper {
+    width: 200px;
+    height: 200px;
+    border: 1px dashed red;
+    margin: 100px auto;
+  }
+
+  .inner {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+
+    /* Scaling along both axis */
+    /* transform: scale(2, 2); */
+    /* transform: scale(1.5); */
+
+    /* Scaling along x axis */
+    /* transform: scaleX(0.5); */
+
+    /* Scaling along y axis */
+    transform: scaleY(2.5);
+
+  }

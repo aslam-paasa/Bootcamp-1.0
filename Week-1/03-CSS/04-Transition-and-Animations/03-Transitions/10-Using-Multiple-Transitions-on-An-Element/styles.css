@@ -1,0 +1,14 @@
+
+  .transition {
+    width: 200px;
+    height: 35px;
+    background-color: red;
+    transition: width 0.5s, transform 1.5s, height 2s, background-color 1s ease-in-out 1s;
+  }
+
+  .container:hover .transition{
+    transform: translateX(500px);
+    width: 400px;
+    height: 100px;
+    background-color: green;
+  }

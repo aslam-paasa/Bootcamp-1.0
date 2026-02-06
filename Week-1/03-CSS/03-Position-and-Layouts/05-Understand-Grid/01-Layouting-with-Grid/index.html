@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <script>
+        /**
+         * Grid (2D Layout):
+         * Layouting with Grid:
+         * - The grid can be used to layout the entire web page, whereas
+         *   flexbox is mostly useful for positioning items in a one-dimensional
+         *   layout, CSS grid is most useful for two-dimensional layouts, providing
+         *   tools for aligning and moving elements across both rows and columns.
+         * - It is best for complex page layouts.
+         *
+         * Grid works in TWO directions:
+         * - Horizontal (columns)
+         * - Vertical (rows)
+         *
+         * Basic parts of Grid:
+         * a. Grid Container → parent element
+         * b. Grid Items     → direct children
+        */
+
+        /**
+         * ================= GRID CONTAINER =================
+
+         * Grid Container Properties:
+         * 1. Container Properties:
+         *    These properties are applied on the parent (container).
+         *    a. display
+         *    b. gap
+         *    c. grid-template-columns
+         *    d. grid-auto-rows
+         *    e. justify-content
+         *    f. align-content and align-items
+         * 
+         * 1.a. Display: Grid 
+         *      - Enable grid on an element.
+         *      - Example:
+         *        .container {
+         *           display: grid;   (Enable grid)
+         *        }
+         *      - All direct children become grid items.
+         * 
+         * 
+         * 1.b. gap Property:
+         *      - Adds space between rows and columns.
+         * 
+         *      - You can use:
+         *        a. row-gap     (for spacing b/w rows)
+         *        b. column-gap  (for spacing b/w columns)
+         *        c. gap         (shorthand for both row and column gaps)
+         *      - Example:
+         *        .container {
+         *           display: grid;
+         *           gap: 20px; (20px gap b/w both rows and columns)
+         *        }
+         * 
+         * 1.b. grid-template-columns
+         *      - Defines how many columns you want
+         *      - Also defines their size
+         *     
+         *      Example:
+         *      .container {
+         *         display: grid;
+         *         grid-template-columns: 1fr 2fr 1fr; (The second col is twice as big as the first and third)
+         *      }
+         *     
+         *      What is fr?
+         *      - fr means "fraction of available space"
+         *      - 1fr 2fr 1fr → middle column is 2x bigger of 1st and last
+         *      
+         *      repeat() function:
+         *      - Used to avoid writing same value again and again
+         *      - Example: grid-template-columns: repeat(3, 1fr); (Creates 3 equal columns)
+         *     
+         * 1.c. grid-auto-rows:
+         *      - Sets height for rows created automatically
+         *      - Example:
+         *        .container {
+         *           grid-auto-rows: 100px; 
+         *          (Any new row will have a height of 100px)
+         *        }
+         *       
+         *      - To allow rows to grow with content:
+         *        grid-auto-rows: minmax(100px, auto); 
+         *       (Minimum height is 100px, but can grow)
+         * 
+         * 
+         * 1.d. justify-content (For Horizontal Alignment)
+         *      - Moves the whole grid left or right inside container.
+         *      - Values:
+         *        a. start         - Aligns grid to the start
+         *        b. center        - Centers the grid
+         *        c. end           - Aligns grid to the end
+         *        d. space-between - Spaces items evenly, first item at the start, last at the end
+         *        e. space-around  - Spaces items with equal space around them
+         *        f. space-evenly  - Spaces items with equal space b/w and around
+         *      - Example:
+         *        .container {
+         *           display: grid;
+         *           grid-template-columns: repeat(3, 1fr);
+         *           justify-content: center;  (The whole grid is centered)
+         *        }
+         * 
+         * 1.e. align-content (For vertical alignment)
+         *      - Aligns the entire grid vertically
+         *        a. start        : Aligns at the top
+         *        b. center       : Aligns in the center
+         *        c. end          : Aligns at the bottom
+         *        d. space-between: Distributes rows evenly
+         *        e. space-around : Adds space around rows
+         *        f. space-evenly : Adds equal spacing
+         * 
+         *      Example:
+         *      .container {
+         *        display: grid;
+         *        grid-template-columns: repeat(3, 1fr);
+         *        height: 500px;
+         *        align-content: center;  (Centers the whole grid vertically) 
+         *        align-items: start;     (Aligns items at the top of their grid cells) 
+         *      }
+         * 
+         * 1.f. align-items 
+         *      - Aligns items inside their grid cells
+         *        a. stretch (default): Stretches itesm to fill their cells.
+         *        b. start            : Aligns items at the top.
+         *        c. center           : Aligns items in the center
+         *        d. end              : Aligns items at the bottom
+         *         
+         *      Example:
+         *      .container {
+         *        display: grid;
+         *        grid-template-columns: repeat(3, 1fr);
+         *        height: 500px;
+         *        align-content: center;  (Centers the whole grid vertically) 
+         *        align-items: start;     (Aligns items at the top of their grid cells) 
+         *      }
+        */
+
+        /**
+         * Grid-Items Properties:
+         * 2. Grid Items:
+         *    These properties are applied on child items.
+         *    a. grid-column 
+         *    b. grid-row
+         *    c. grid-area (shorthand for grid positioning)
+         * 
+         * 2.a. grid-column
+         *      - Controls how many columns an item uses
+         *      - You can tell:
+         *        > where the item starts
+         *        > where the item ends
+         * 
+         *      Example-1:
+         *      .item {
+         *         grid-column: 1 / 3;
+         *      }
+         * 
+         *      Meaning:
+         *      - Start at column line-1
+         *      - End before column line-3
+         *      - So, the item takes 2 columns
+         * 
+         *      Example-2:
+         *      .item {
+         *         grid-column: span 2;
+         *      }
+         * 
+         *      Meaning: Item starts from column 1 and uses 2 columns from its current position
+         * 
+         * 2.b. grid-row
+         *      - Controls how many ROWS an item uses.
+         *      - Same idea as grid-column, but vertical.
+         *      - Example:
+         *           .items {
+         *              grid-row: 1 / span 4; 
+         *           }
+         *      - Meaning:
+         *        - Start at row 1
+         *        - Take 4 rows downward
+         * 
+         * 2.c. grid-area (shorthand for grid positioning)
+         *      - Grid Area: row-start / column-start / row-end / column-end
+         *      - Example:
+         *        .item {
+         *          grid-area: 1 / 1 / 3 / 3;
+         *        }
+         *        
+         *        This means:
+         *         - Starts at row 1
+         *         - Starts at column 1
+         *         - Ends at row 3
+         *         - Ends at column 3
+         * 
+         *        Result: - Item covers a 2x2 grid area
+        */
+
+        /**
+         * Simple Memory Trick:
+         * - grid-column → how wide the item is
+         * - grid-row    → how tall the item is
+         * - grid-area   → full control (row + column)
+        */
+    </script>
+</head>
+<body>
+
+</body>
+</html>

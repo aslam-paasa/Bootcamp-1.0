@@ -1,0 +1,21 @@
+/**
+  * transition-property: property name
+  * transition-duration: duration amount in time (seconds or milliseconds)
+  * transition-timing-function: predefined keyword or steps function or timing-function
+  * transition-delay: timeout amount in time (seconds or milliseconds)
+  *
+  * transition: property-name duration timing-function delay
+  *
+  */
+
+
+  .together {
+    width: 200px;
+    height: 35px;
+    background-color: red;
+    transition: transform 1.25s;
+  }
+
+  .together-container:hover .together{
+    transform: translateX(500px);
+  }

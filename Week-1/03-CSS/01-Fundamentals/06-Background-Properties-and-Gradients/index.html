@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background in CSS</title>
+    <style>
+        /* Common box styling */
+        .box {
+            width: 300px;
+            height: 150px;
+            margin: 20px 0;
+            border: 2px solid black;
+            color: white;
+            padding: 10px;
+        }
+
+        /* 1. background-color */
+        .bg-color {
+            background-color: steelblue;
+        }
+
+        /* 2. background-image */
+        .bg-image {
+            background-image: url("https://images.unsplash.com/photo-1769371868035-9c4995652a25?q=80&w=1074&auto=format&fit=crop");
+        }
+
+        /* 3. background-repeat */
+        .bg-repeat {
+            background-image: url("https://images.unsplash.com/photo-1769371868035-9c4995652a25?q=80&w=300&auto=format&fit=crop");
+            background-repeat: repeat;
+        }
+
+        .bg-no-repeat {
+            background-image: url("https://images.unsplash.com/photo-1769371868035-9c4995652a25?q=80&w=300&auto=format&fit=crop");
+            background-repeat: no-repeat;
+        }
+
+        /* 4. background-size */
+        .bg-size-cover {
+            background-image: url("https://images.unsplash.com/photo-1769371868035-9c4995652a25?q=80&w=1074&auto=format&fit=crop");
+            background-size: cover;
+        }
+
+        .bg-size-contain {
+            background-image: url("https://images.unsplash.com/photo-1769371868035-9c4995652a25?q=80&w=1074&auto=format&fit=crop");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        /* 5. background-position */
+        .bg-position {
+            background-image: url("https://images.unsplash.com/photo-1769371868035-9c4995652a25?q=80&w=300&auto=format&fit=crop");
+            background-repeat: no-repeat;
+            background-position: bottom right;
+        }
+
+        /* 6. background-attachment */
+        .bg-attachment {
+            height: 200px;
+            background-image: url("https://images.unsplash.com/photo-1769371868035-9c4995652a25?q=80&w=1074&auto=format&fit=crop");
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        /* 7. background-blend-mode */
+        .bg-blend {
+            background-color: rgba(255, 0, 0, 0.6);
+            background-image: url("https://images.unsplash.com/photo-1769371868035-9c4995652a25?q=80&w=1074&auto=format&fit=crop");
+            background-blend-mode: multiply;
+        }
+
+        /* 8. All background properties combined */
+        .bg-all {
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)),
+                url("https://images.unsplash.com/photo-1769371868035-9c4995652a25?q=80&w=1074&auto=format&fit=crop");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* ================= GRADIENTS ================= */
+
+        /* 9. Linear Gradient */
+        .bg-linear-gradient {
+            background: linear-gradient(to right, red, orange, yellow);
+        }
+
+        /* 10. Linear Gradient with angle */
+        .bg-linear-angle {
+            background: linear-gradient(135deg, purple, blue);
+        }
+
+        /* 11. Radial Gradient */
+        .bg-radial-gradient {
+            background: radial-gradient(circle, red, yellow, green);
+        }
+
+        /* 12. Gradient + Image (real-world overlay) */
+        .bg-gradient-overlay {
+            background:
+                linear-gradient(rgba(156, 64, 64, 0.6),
+                    rgba(25, 173, 82, 0.6)),
+                url("https://images.unsplash.com/photo-1769371868035-9c4995652a25?q=80&w=1074&auto=format&fit=crop");
+            background-size: cover;
+            background-position: center;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+    </style>
+    <script>
+        /**
+         * Backgrounds in CSS:
+         * > Background properties control how the background of an element
+         *   looks and behaves.
+         * > Backgrounds can use colors, images, gradients, or a combination
+         *   of all three.
+         * > Important Background Properties:
+         *   1. background-color     : Sets the background color
+         *   2. background-image     : Adds a background image
+         *   3. background-repeat    : Controls whether the image repeats
+         *   4. background-size      : Controls how the background image is scaled.
+         *   5. background-position  : Sets the starting position of the background image.
+         *   6. background-attachment: Controls whether the background scrolls with the page.
+         *   7. background-blend-mode: Defines how the background image blends with the background color.
+         *   8. All background properties combined
+        */
+
+        /**
+         * Important Background Properties:
+         *
+         * 1. background-color
+         *    - Sets a solid color behind the content.
+         *    - This color is visible if no background image exists,
+         *      or through transparent areas of an image.
+         *
+         *    Example:
+         *    background-color: steelblue;
+         *
+         * 2. background-image
+         *    - Adds an image or gradient as the background.
+         *    - Can accept:
+         *      a. Image URLs
+         *      b. Gradients (linear, radial, conic)
+         *
+         *    Example:
+         *    background-image: url("image.jpg");
+         *    background-image: linear-gradient(red, yellow);
+         *
+         * 3. background-repeat
+         *    - Controls whether the background image repeats.
+         *    - Common values:
+         *      repeat      : Image tiles in both directions (default)
+         *      no-repeat   : Image shows once
+         *      repeat-x    : Repeat horizontally
+         *      repeat-y    : Repeat vertically
+         *
+         * 4. background-size
+         *    - Controls how the background image fits inside the element.
+         *    - Common values:
+         *      auto        : Original image size
+         *      cover       : Covers entire container (may crop)
+         *      contain     : Shows full image (may leave space)
+         *
+         * 5. background-position
+         *    - Controls where the background image is placed.
+         *    - Uses keywords or coordinates.
+         *
+         *    Example:
+         *    background-position: center;
+         *    background-position: bottom right;
+         *
+         * 6. background-attachment
+         *    - Controls how the background moves during scrolling.
+         *    - Values:
+         *      scroll      : Moves with page (default)
+         *      fixed       : Stays fixed while content scrolls
+         *
+         *    Note:
+         *    background-attachment: fixed; may not work well on mobile devices.
+         *
+         * 7. background-blend-mode
+         *    - Defines how background color and background image
+         *      blend together.
+         *    - Common values:
+         *      multiply, overlay, screen, darken, lighten
+         *
+         * 8. Multiple Backgrounds
+         *    - CSS allows stacking multiple backgrounds.
+         *    - Backgrounds are layered from top to bottom.
+         *
+         *    Example:
+         *    background:
+         *      linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+         *      url("image.jpg");
+         *
+         * Summary:
+         * - Backgrounds are visual layers behind content
+         * - Images and gradients are both background-images
+         * - Multiple backgrounds can be layered for real UI designs
+         */
+
+
+        /**
+         * Gradients in CSS:
+         * > Gradients allow you to create smooth color transitions
+         *   without using image files.
+         * > Gradients are treated as background-images in CSS.
+         * > That means they can be used anywhere `background-image` is used.
+         *
+         * Why gradients are powerful:
+         * - No image download (better performance)
+         * - Fully responsive (scale automatically)
+         * - Easy to modify colors and directions
+         *
+         * Types of Gradients:
+         *
+         * 1. Linear Gradient
+         *    - Colors transition in a straight line.
+         *    - Direction can be:
+         *      a. Keywords: to right, to left, to top, to bottom
+         *      b. Angles: 0deg, 90deg, 135deg, etc.
+         *
+         *    Example:
+         *    background: linear-gradient(to right, red, yellow);
+         *    background: linear-gradient(135deg, purple, blue);
+         *
+         * 2. Radial Gradient
+         *    - Colors spread outward from a center point.
+         *    - Shape can be:
+         *      a. circle
+         *      b. ellipse (default)
+         *
+         *    Example:
+         *    background: radial-gradient(circle, red, yellow, green);
+         *
+         * 3. Multiple Color Stops
+         *    - You can define where each color starts and ends.
+         *
+         *    Example:
+         *    background: linear-gradient(
+         *        to right,
+         *        red 0%,
+         *        yellow 50%,
+         *        green 100%
+         *    );
+         *
+         * Gradients with Images (Real-World Use):
+         * - Gradients are often layered on top of images
+         *   to improve text readability.
+         * - This is done using multiple backgrounds.
+         *
+         * Example:
+         * background:
+         *   linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+         *   url("image.jpg");
+         *
+         * Important Notes:
+         * - First background is drawn on top
+         * - Last background is drawn at the bottom
+         * - Gradients do NOT repeat unless specified
+         *
+         * Summary:
+         * - Gradients are dynamic, scalable backgrounds
+         * - They reduce dependency on image files
+         * - Widely used in modern UI designs
+         */
+
+    </script>
+</head>
+
+<body>
+
+    <h2>1. background-color</h2>
+    <div class="box bg-color">Background Color</div>
+
+    <h2>2. background-image</h2>
+    <div class="box bg-image">Background Image</div>
+
+    <h2>3. background-repeat</h2>
+    <div class="box bg-repeat">Repeat</div>
+    <div class="box bg-no-repeat">No Repeat</div>
+
+    <h2>4. background-size</h2>
+    <div class="box bg-size-cover">Cover</div>
+    <div class="box bg-size-contain">Contain</div>
+
+    <h2>5. background-position</h2>
+    <div class="box bg-position">Bottom Right</div>
+
+    <h2>6. background-attachment</h2>
+    <div class="box bg-attachment">Scroll Page</div>
+
+    <h2>7. background-blend-mode</h2>
+    <div class="box bg-blend">Blend Mode</div>
+
+    <h2>8. All background properties combined</h2>
+    <div class="box bg-all">Combined Background</div>
+
+    <h2>9. Linear Gradient</h2>
+    <div class="box bg-linear-gradient">Linear Gradient</div>
+
+    <h2>10. Linear Gradient (Angle)</h2>
+    <div class="box bg-linear-angle">135° Gradient</div>
+
+    <h2>11. Radial Gradient</h2>
+    <div class="box bg-radial-gradient">Radial Gradient</div>
+
+    <h2>12. Gradient + Image Overlay</h2>
+    <div class="box bg-gradient-overlay">Overlay Gradient</div>
+
+</body>
+
+</html>

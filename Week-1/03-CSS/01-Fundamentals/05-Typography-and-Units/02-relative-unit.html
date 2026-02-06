@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Relative Unit</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <style>
+        html {
+            font-size: 16px;
+        }
+
+        .parent {
+            font-size: 30px;
+            border: 2px solid black;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .em-text {
+            font-size: 1em;
+        }
+
+        .rem-text {
+            font-size: 1rem;
+        }
+
+        .vh-text {
+            font-size: 5vh;
+        }
+
+        /* Layout helper */
+        body {
+            font-family: Roboto, sans-serif;
+            padding: 20px;
+        }
+
+        /* 50% of height & width of body (parent) */
+        .container {
+            height: 50%;
+            width: 50%;
+            border: 1px solid black;
+            background-color: lightcoral;
+            font-size: 30px;
+        }
+
+        /* 50% of height & width of container (parent) */
+        .child {
+            height: 50%;
+            width: 50%;
+            border: 1px solid black;
+            background-color: lightgreen;
+            font-size: 1em; /* 1em = 16px (default) => parent = 30px : child : 1em = 30px*/
+        }
+    </style>
+
+    <script>
+        /**
+         * Absolute vs Relative Units in CSS
+         * > CSS units define how sizes are measured for fonts, margings,
+         *   padding, and other elements.
+        */
+
+        /**
+         * 2. Relative Units (Scalable & Responsive)
+         *    - Relative Units adjust based on the context (parent element,
+         *      viewport, or root font size).
+         *    - Units   :   Relative to           :  Description
+         *      a. %    :   Parent Element        :  Percentage-based size
+         *      b. em   :   Parent Font Size      :  1em = 100% of parent font size
+         *      c. rem  :   Root Font Size (html) :  1rem = 100% of root font size
+         *      d. vh   :   Viewport Height       :  1vh = 1% of viewport height
+         *      e. vw   :   Viewport Width        :  1vw = 1% of viewport width
+         *      f. vmin :   Smaller of vh or vw   :  1vmin = 1% of the smaller side
+         *      g. vmax :   Larger of vh or vw    :  1vmax = 1% of the larger side
+         * 
+         *    - rem vs em:
+         *      > rem is consistent because it depends on the root <html> font size.
+         *      > em cascades, so it depends on the parent element.
+         *      > Example:
+         *        html {
+         *          font-size: 16px;
+         *        }
+         *   
+         *        p {
+         *           font-size: 1.5em; (1.5 times the parent font size)
+         *        }
+         *   
+         *        h1 {
+         *           font-size: 2rem; (2 times the root font size (16px x 2 = 32px))
+         *        }
+         * 
+         *    - vh vs vw:
+         *      .fullscreen-section {
+         *        width: 100vw;   (Full width of the viewport) 
+         *        height: 100vh;  (Full height of the viewport) 
+         *        background: lightblue;
+         *      }
+         * 
+         *    - Note:
+         *      > Use rem for scalable font sizes.
+         *      > Use vh and vw for fullscreen layouts.
+        */
+    </script>
+</head>
+
+<body>
+    <h2>Relative Units (Scalable)</h2>
+
+    <div class="parent">
+        Parent font-size: 30px
+
+        <p class="em-text">
+            Child font-size: 1em (equals 30px)
+        </p>
+
+        <p class="rem-text">
+            Child font-size: 1rem (equals 16px from html)
+        </p>
+    </div>
+
+    <p class="vh-text">
+        This text uses 5vh (changes with screen height)
+    </p>
+
+    <h1>Another Example</h1>
+    <div class="container">
+        <div class="child">Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, sapiente excepturi at tempore eum incidunt est, nostrum obcaecati quaerat libero quo, magni tenetur quisquam atque voluptate dignissimos soluta dolores nisi dicta possimus placeat? Earum magni repudiandae labore odio culpa dolores beatae? Deserunt ducimus eveniet, minima quo quas est consequuntur rerum?</div>
+    </div>
+</body>
+
+</html>

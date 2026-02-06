@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Basic Styling Properties</title>
+
+	<!-- Google Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+	<style>
+		/* 1. Colors + Text Decoration */
+		h1 {
+			color: blue;
+			text-decoration: underline;
+			background-color: gold;
+			padding: 10px;
+		}
+
+		/* 2. Fonts + Border */
+		h2 {
+			color: purple;
+			font-weight: bold;
+			font-size: 25px;
+			border: 2px solid orange;
+			padding: 10px;
+		}
+
+		/* 3. Section layout + spacing */
+		section {
+			width: 50%;
+			height: 200px;
+			background-color: gray;
+			border: 2px solid black;
+			padding: 15px;
+			margin: 20px 0;
+		}
+
+		section p {
+			color: white;
+			font-size: 16px;
+			line-height: 1.5;
+		}
+
+		/* 4. Footer styling */
+		footer {
+			background-color: black;
+			border: 2px solid lightgreen;
+			padding: 15px;
+		}
+
+		footer h3 {
+			color: white;
+			font-size: 20px;
+			font-family: 'Roboto', sans-serif;
+		}
+
+		/* Page helper */
+		body {
+			font-family: Arial, sans-serif;
+			padding: 20px;
+		}
+	</style>
+
+
+	<script>
+		/**
+		 * Basic Styling Properties:
+		 * 1. Colors
+		 * 2. Fonts
+		 * 3. Text Alignment
+		 * 4. Margins and padding
+		*/
+
+
+		/**
+		 * Color: 
+		 * - There are 4 main way to color in CSS:
+		 *   a. Word
+		 *      h1 {
+		 *         color: red;
+		 *      }
+		 *   
+		 *   b. Hex
+		 *      h2 {
+		 *         color: #FF0000;
+		 *      }
+		 *   
+		 *   c. RGBa: Red-Green-Blue-AlphaChannel(transparency)
+		 *      p {
+		 *         color: rbga(255, 0, 0, 1);
+		 *      }
+		 *   
+		 *   d. HSLa: Hue-Saturation-Lightning-AlphaChannel(transparency)
+		 *      span {
+		 *         color: hsla(0, 100%, 50%, 1);
+		 *      }
+		 * 
+		 * - A lot of times we are working with designers, and a good designers
+		 *   will give us the color of everything. But when we are building
+		 *   our own simple project that's when we use the 'color property'.
+		*/
+
+		/**
+		 * Fonts:
+		 * > CSS provides various properties to style fonts and texts,
+		 *   making content more readable and visually appealing.
+		 *   a. font-family
+		 *   b. font-size
+		 *   c. font-weight
+		 *   d. line-height
+		 * 
+		 * > Important font properties:
+		 *   a. font-family:
+		 *      - Defines the typeface of the text.
+		 *      - Always specify multiple font options (fallback) in case
+		 *        the primary font is unavailable.
+		 *      - Example:
+		 *        p {
+		 *           font-family: Arial, sans-serif;
+		 *        }
+		 *      
+		 *   b. font-size:
+		 *      - Sets the size of the text.
+		 *      - Can be defined in px, em, rem, %, or vw/vh.
+		 *      - Example:
+		 *        h1 {
+		 *           font-size: 32px;
+		 *        }
+		 * 
+		 *   c. font-weight:
+		 *      - Determines the thickness (boldness) of the text.
+		 *      - Common Values: normal, bold, lighter, bolder or numeric values (100 to 900)
+		 *      - Example:
+		 *        p {
+		 *           font-weight: bold;
+		 *        }
+		 * 
+		 *   d. line-height:
+		 *      - defines the space b/w lines of text.
+		 *      - can be a number, unit (px, em) or percentage.
+		 *      - Example:
+		 *        p {
+		 *           line-height: 1.5;
+		 *        }
+		*/
+
+		/**
+		 * Text Alignment and Decoration:
+		 * a. text-align:
+		 *    - Align text within an element.
+		 *    - Values: left, right, center, justify.
+		 *    - Example:
+		 *      h1 {
+		 *         text-align: center;
+		 *      }
+		 * 
+		 * b. text-decoration:
+		 *    - adds or removes decoration from text.
+		 *    - Values: underline, overline, line-through, none.
+		 *    - Example:
+		 *      a {
+		 *         text-decoration: none;
+		 *      }
+		 * 
+		 *    - <a href="#" style="text-decoration: underline;">Underlined Link</a>
+		*/
+
+		/**
+		 * Margins and Padding:
+		 * > Margin : Space outside an element
+		 * > Padding: Space inside an element, b/w the content and its border.
+		 * > Example:
+		 *   div {
+		 *      margin: 20px;    (Adds 20px space outside the element)
+		 *      padding: 10px;   (Adds 10px space inside the element)
+		 *      border: 2px solid black;
+		 *   }
+		*/
+
+	</script>
+
+</head>
+
+<body>
+
+	<h1>Make this text blue, underlined, and have a gold background</h1>
+
+	<h2>Make this text purple, bolded, 25px, and have an orange border</h2>
+
+	<section>
+		<p>
+			Make this section width of 50%, height of 200px,
+			background of gray, border of black, and the paragraph text white
+		</p>
+	</section>
+
+	<footer>
+		<h3>
+			Make this footer have a black background, with light green border,
+			and this text 20px white plus a font-family of Roboto
+		</h3>
+	</footer>
+
+
+</body>
+
+</html>

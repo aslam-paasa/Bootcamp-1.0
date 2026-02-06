@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 10px;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(6, 15rem);
+  grid-template-areas:
+    "logo logo logo mini-title mini-title mini-title"
+    "desc desc desc title title title"
+    "img img img email email email"
+    "img img img password password password"
+    "img img img submit submit submit"
+    "img img img google google google"
+    "img img img sign-in sign-in sign-in";
+
+  gap: 2rem 3rem;
+  align-items: center;
+  place-content: center;
+
+  padding: 4rem;
+}
+
+.logo {
+  grid-area: logo;
+
+  justify-self: center;
+}
+
+.logo img {
+  height: 3rem;
+}
+
+.description {
+  grid-area: desc;
+
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.sign-up-img {
+  grid-area: img;
+}
+
+.sign-up-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.mini-title {
+  grid-area: mini-title;
+
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.title {
+  grid-area: title;
+
+  font-size: 3rem;
+}
+
+.email-fieldset,
+.password-fieldset {
+  border: none;
+  font-size: 1.3rem;
+
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+
+.email-fieldset {
+  grid-area: email;
+}
+
+.password-fieldset {
+  grid-area: password;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="submit"] {
+  border: none;
+  outline: none;
+  background: none;
+
+  font-size: 1.6rem;
+  padding: 1.5rem 2.5rem;
+  border-radius: 1rem;
+}
+
+input[type="email"],
+input[type="password"] {
+  border: 1px solid lightgrey;
+}
+
+input[type="submit"] {
+  grid-area: submit;
+
+  background-color: #242f9b;
+  color: white;
+  cursor: pointer;
+}
+
+.google-sign-up {
+  grid-area: google;
+
+  background-color: #dbdffd;
+  padding: 1.5rem 2.5rem;
+  border-radius: 1rem;
+  color: #242f9b;
+}
+
+.google-sign-up,
+.sign-in {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.sign-in {
+  grid-area: sign-in;
+}
+
+.sign-in a {
+  color: #242f9b;
+}

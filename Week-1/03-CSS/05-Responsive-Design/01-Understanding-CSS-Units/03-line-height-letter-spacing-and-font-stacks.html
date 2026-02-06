@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography in CSS</title>
+    <style>
+        /* 1. font-family */
+        .font-family-demo {
+            font-family: Arial, sans-serif;
+        }
+
+        /* 2. font-size */
+        .font-size-demo {
+            font-size: 1.5rem;
+        }
+
+        /* 3. font-weight */
+        .normal {
+            font-weight: normal;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .heavy {
+            font-weight: 700;
+        }
+
+        /* 4. line-height */
+        .line-height-demo {
+            line-height: 1.8;
+        }
+
+        /* 5. letter-spacing */
+        .letter-spacing-demo {
+            letter-spacing: 3px;
+        }
+
+        /* 6. text-align */
+        .center {
+            text-align: center;
+        }
+
+        .right {
+            text-align: right;
+        }
+
+        .justify {
+            text-align: justify;
+        }
+
+        /* 7. text-transform */
+        .upper {
+            text-transform: uppercase;
+        }
+
+        .lower {
+            text-transform: lowercase;
+        }
+
+        .cap {
+            text-transform: capitalize;
+        }
+
+        /* 8. color */
+        .named-color {
+            color: red;
+        }
+
+        .hex-color {
+            color: #4a90e2;
+        }
+
+        /* Small layout helper */
+        body {
+            font-family: Roboto, sans-serif;
+            padding: 20px;
+        }
+
+        hr {
+            margin: 25px 0;
+        }
+    </style>
+    <script>
+        /**
+         * Typography in CSS:
+         * > Typography controls the appearance and readability of text on
+         *   your webpage.
+         * 
+         * Common Typography Properties:
+         * 1. font-family   : Specifies the typeface             (e.g., Arial, Georgia).
+         * 2. font-size     : Defines the size of the text       (e.g., 16px, 1.2rem).
+         * 3. font-weight   : Controls the thickness of the text (e.g., normal, bold, 700)
+         * 4. line-height   : Adjusts the vertical spacing b/w lines of text.
+         * 5. letter-spacing: Adds space b/w individual characters.
+         * 6. text-align    : Aligns text horizontally           (e.g., left, center, right, justify)
+         * 7. text-transform: Modifies text capitalization       (e.g, uppercase, lowercase, capitalization)
+         * 8. color         : Sets the text color
+         * 
+         * Note: Typography is not just about the size - it also includes
+         *       line height, spacing, and font choice.
+        */
+
+        /**
+         * Line Height (Spacing b/w lines):
+         * > Controls the space b/w lines of text.
+         * > Example:
+         *   p {
+         *      font-size: 16px;
+         *      line-height: 1.5;  (1.5 times the font size)
+         *   }
+         * > Best Practices:
+         *   - Use 1.4 to 1.6 for body text (improves readability)
+         *   - Use 1.2 for headings (to keep them compact.)
+        */
+
+        /**
+         * Letter Spacing (Spacing b/w letters):
+         * > Controls the space b/w characters.
+         * > Example:
+         *   h1 {
+         *      letter-spacing: 2px; (Adds 2px space b/w characters)
+         *   }
+         * > Best Practices:
+         *   - Increase letter-spacing for uppercase text to improve
+         *     readability.
+         *   - Use negative values (-1px) for compact headings.
+        */
+
+        /**
+         * Word Spacing (Spacing b/w words):
+         * > Controls the space b/w words.
+         * > Example:
+         *   p {
+         *      word-spacing: 5px;
+         *   }
+        */
+
+        /**
+         * Google Fonts & Web-Safe Fonts:
+         * > Web-Safe fonts are pre-installed on most devices, ensuring
+         *   consistent rendering.
+         * > Common Web-Safe Fonts:
+         *   - font-family: Arial, Helvetica, sans-serif;
+         *   - font-family: "Times New Roman", Times, serif;
+         *   - font-family: "Courier New", Courier, monospace;
+         * > Best Practice:
+         *   Always use fallback fonts (e.g., Arial, sans-serif) in 
+         *   case the primary font is unavailable.
+         * 
+         * Google Fonts:
+         * > Google Fonts provides custom, free fonts for websites.
+         *   a. Go to Google Fonts.
+         *   b. Select a font and copy the <link> tag.
+         *   c. Use it in CSS.
+         * > Example:
+         *   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+         * 
+         *   body {
+         *      font-family: 'Poppins', sans-serif;
+         *   }
+        */
+    </script>
+</head>
+
+<body>
+
+    <h2>1. font-family</h2>
+    <p class="font-family-demo">
+        This text is using Arial with sans-serif fallback.
+    </p>
+
+    <hr>
+
+    <h2>2. font-size</h2>
+    <p class="font-size-demo">
+        This text uses 1.5rem font size.
+    </p>
+
+    <hr>
+
+    <h2>3. font-weight</h2>
+    <p class="normal">Normal font weight</p>
+    <p class="bold">Bold font weight</p>
+    <p class="heavy">700 font weight</p>
+
+    <hr>
+
+    <h2>4. line-height</h2>
+    <p class="line-height-demo">
+        This paragraph demonstrates line height.<br>
+        Notice the space between lines.<br>
+        It improves readability.
+    </p>
+
+    <hr>
+
+    <h2>5. letter-spacing</h2>
+    <p class="letter-spacing-demo">
+        Letter Spacing Example
+    </p>
+
+    <hr>
+
+    <h2>6. text-align</h2>
+    <p class="center">Center aligned text</p>
+    <p class="right">Right aligned text</p>
+    <p class="justify">
+        This text is justified. It stretches across both left and right edges,
+        making it look like a newspaper paragraph.
+    </p>
+
+    <hr>
+
+    <h2>7. text-transform</h2>
+    <p class="upper">hello world</p>
+    <p class="lower">HELLO WORLD</p>
+    <p class="cap">hello world</p>
+
+    <hr>
+
+    <h2>8. color</h2>
+    <p class="named-color">This text uses a named color</p>
+    <p class="hex-color">This text uses a hex color</p>
+
+</body>
+
+</html>

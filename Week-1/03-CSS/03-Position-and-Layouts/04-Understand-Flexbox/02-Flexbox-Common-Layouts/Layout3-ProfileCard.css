@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 10px;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.profile-cards {
+  display: flex;
+  justify-content: space-evenly;
+
+  margin-top: 50vh;
+  transform: translateY(-50%);
+
+  background-color: #f4d7d7;
+  padding: 2rem 4rem;
+}
+
+.profile-cards__card {
+  display: flex;
+  align-items: center;
+  column-gap: 2rem;
+  /* align-items: flex-start; */
+  /* align-items: flex-end; */
+  /* align-items: baseline; */
+  /* align-items: stretch; */
+}
+
+.profile-cards__card--img {
+  height: 20rem;
+  width: 20rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profile-cards__card--info__name {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.profile-cards__card--info__role {
+  font-size: 1.5rem;
+  color: rgba(0 0 0 / 0.5);
+}

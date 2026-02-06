@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Modelling & Layout</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        /**
+         * The Box Model:
+         * - Every HTML element is represented as a 'rectangular box',
+         *   consisting of four layers:
+         *   a. Content: The innermost part, containing text, images or other media.
+         *   b. Padding: Space b/w the content and the border
+         *   c. Border : A visible boundary around the padding.
+         *   d. Margin : Space outside the border, separating the element from other elements.
+         * 
+         * Box Sizing:
+         * - Box sizing controls how browser calculates total width/height of elements:
+         * - CSS provides two box-sizing models:
+         *   a. Content-box (Default):
+         *      - Width/height properties only apply to content area
+         *      - Padding and border are added outside the specified dimensions.
+         *      - Example:
+         *        div {
+         *           width: 200px;
+         *           padding: 20px;
+         *           border: 5px solid black;
+         *           box-sizing: content-box;  (Default Behavior)
+         *        }
+         *      - Final Width = 200px(content) + 40px(padding) + 10px(border) = 250px
+         *   
+         *   b. Border-box (Modern):
+         *      - Width/height property includes everything (content + padding + margin).
+         *      - This makes layout calculations more predictable.
+         *      - Example:
+         *        div {
+         *           width: 200px;
+         *           padding: 20px;
+         *           border: 5px solid black;
+         *           box-sizing: border-box;
+         *        }
+         *      - Final Width: 200px (everything included)
+         * 
+         * - Every single thing in a web development is a box.
+         * - Everything is trying to take horizontal and vertical space.
+         *   So, box model is concerned with why & how does it take up 
+         *   space? Because other things we want to have stuffs inside of
+         *   other stuff and if we don't know how much space things are
+         *   taking up, we can't sit stuffs next to each other.
+         * 
+         *   section {
+         *      height: 100px;
+         *      width: 100px;
+         *   }
+         * 
+         * => It will draw a nice square box.
+         * 
+         * Q. Let's say I have an article and I want to put that sections
+         *    inside of my article, which is 300px wide, how many of these
+         *    sections will fit inside my article?
+         * => 3 sections
+         * 
+         * When it comes to the box model, there are three really important
+         * things:
+         * 1. Going horizontally, we have:
+         *    a. width
+         *    b. then we have padding
+         *    c. then we have border
+         * 2. Going vertically, we have:
+         *    a. height
+         *    b. then we have padding
+         *    c. then we have border
+         * 
+         *     +-------------B  O  R  D  E  R----------------+    
+         *     |             P  A  D  D  I  N  G             |    
+         *     |    +-----------------------------------+    |    
+         *     |    |  H                                |    |    
+         *     |    |  E                                |    |    
+         *     |    |  I                                |    |    
+         *     |    |  G                                |    |    
+         *     |    |  H        W I D T H               |    |    
+         *     |    +--T--------------------------------+    |    
+         *     |                                             |    
+         *     +---------------------------------------------+    
+         *                                                        
+         * => These are the 3 things that we can control that take up size 
+         *    when we try to calculate according to box model.
+         * Note: Margin is a bully. It is used to push around the box model
+         *       but not necessarily something that we can consider a true
+         *       part of the box.
+         * 
+         * Border:
+         * Q. How wide is this element?
+         *   section {
+         *      height: 100px;
+         *      width: 100px;
+         *      border: 5px solid black;
+         *   }
+         * => This element is 110px wide.
+         *    5pxLHS + 100pxwidth + 5pxRHS = 110px total
+         * 
+         *    a. border-width  : Sets the thickness
+         *    b. border-style  : Defines the type(solid, dashed, dotted)
+         *    c. border-color  : Sets the color
+         *    d. border-radius : Rounds corners
+         * 
+         *       div {
+         *         border: 2px solid black;
+         *         border-radius: 10px;
+         *       }
+         * 
+         * Padding: [Space inside an element]
+         * => Padding increases the distance between the element and its
+         *    border. So, padding pushes the border away from the element.
+         * 
+         * Q. How wide is this element?
+         *   section {
+         *      height: 100px;
+         *      width: 100px;
+         *      border: 5px solid black;
+         *      padding-right: 20px; 
+         *   }
+         * 
+         * => 5pxLHS + 100px Width + 20pxPadding + 5pxRHS = 130px
+         * 
+         * Q. If I have an article that was 300px wide, and I want to sit
+         *    the section inside that article, how many section can we fit?
+         * => 2 section, and the 3rd one will run out of room and break the
+         *    next line.
+         * 
+         * Margin: [Space outisde an element]
+         * => Margin pushes the box model around. So, if we add margin on 
+         *    the top, it would push our box model to the down. And if we
+         *    have margin on the left, then it will push the box to the 
+         *    right.
+        */
+    </script>
+</head>
+<body>
+    <!-- Box Model Examples -->
+    <div class="container">
+        <!-- Basic Box Example -->
+        <div class="basic-box">
+            <h2>Basic Box</h2>
+            <p>Width: 100px, Height: 100px</p>
+        </div>
+
+        <!-- Box with Border -->
+        <div class="border-box">
+            <h2>Box with Border</h2>
+            <p>Width: 100px + 5px border each side</p>
+        </div>
+
+        <!-- Box with Padding -->
+        <div class="padding-box">
+            <h2>Box with Padding</h2>
+            <p>Width: 100px + 20px padding + 5px border</p>
+        </div>
+
+        <!-- Box with Margin -->
+        <div class="margin-box">
+            <h2>Box with Margin</h2>
+            <p>Pushed away from other elements</p>
+        </div>
+
+        <!-- Article Container -->
+        <article class="article-container">
+            <h2>Article Container (300px wide)</h2>
+            <div class="section-box">Section 1</div>
+            <div class="section-box">Section 2</div>
+            <div class="section-box">Section 3</div>
+        </article>
+    </div>
+</body>
+</html>
