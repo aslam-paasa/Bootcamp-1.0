@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Link Tags Example</title>
+
+    <!-- Link to an external stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Link to a favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Preload an image for faster loading -->
+    <link rel="preload" href="image.jpg" as="image">
+</head>
+<body>
+
+    <!-- Hyperlink using <a> -->
+    <a href="https://www.example.com/" target="_blank">Visit Example.com</a>
+
+    <!-- Base tag to specify base URL for relative links -->
+    <base href="https://www.example.com//">
+    <a href="page.html">Go to Page</a> <!-- This will link to https://www.example.com//page.html -->
+
+    <!-- Download link using <a> tag -->
+    <a href="file.txt" download="SampleFile">Download File</a>
+
+</body>
+</html>

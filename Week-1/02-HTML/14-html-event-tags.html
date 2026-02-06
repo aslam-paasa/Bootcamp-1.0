@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Event Example</title>
+    <script>
+        // Function to handle the click event
+        function showClickAlert() {
+            alert("You clicked the button!");
+        }
+
+        // Function to handle mouseover event
+        function changeBackgroundColor() {
+            document.getElementById("hoverDiv").style.backgroundColor = "lightblue";
+        }
+
+        // Function to handle onchange event
+        function showChangeAlert() {
+            alert("You changed the input value!");
+        }
+
+        // Function to handle onload event
+        function showImageAlert() {
+            alert("Image loaded successfully!");
+        }
+
+        // Function to handle onkeydown event
+        function showKeyPressMessage(event) {
+            alert("You pressed the " + event.key + " key.");
+        }
+
+        // Function to handle onfocus event
+        function changeInputFocusColor() {
+            document.getElementById("inputField").style.backgroundColor = "yellow";
+        }
+    </script>
+</head>
+<body>
+    <h1>HTML Event Example</h1>
+
+    <!-- Click event -->
+    <button onclick="showClickAlert()">Click Me!</button>
+
+    <!-- Mouseover event -->
+    <div id="hoverDiv" onmouseover="changeBackgroundColor()" style="width: 200px; height: 100px; margin-top: 20px; text-align: center; line-height: 100px; background-color: lightgray;">
+        Hover over me!
+    </div>
+
+    <!-- Change event -->
+    <input type="text" onchange="showChangeAlert()" placeholder="Type something and change the value" style="margin-top: 20px;">
+
+    <!-- Onload event -->
+    <img src="https://via.placeholder.com/150" onload="showImageAlert()" alt="Example Image" style="margin-top: 20px;">
+
+    <!-- Onkeydown event -->
+    <input type="text" onkeydown="showKeyPressMessage(event)" placeholder="Press a key" style="margin-top: 20px;">
+
+    <!-- Onfocus event -->
+    <input type="text" id="inputField" onfocus="changeInputFocusColor()" placeholder="Click to focus" style="margin-top: 20px;">
+</body>
+</html>
