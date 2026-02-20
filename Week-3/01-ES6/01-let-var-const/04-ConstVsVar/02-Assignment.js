@@ -1,1 +1,0 @@
-// What is the difference between typeError and reference Error?

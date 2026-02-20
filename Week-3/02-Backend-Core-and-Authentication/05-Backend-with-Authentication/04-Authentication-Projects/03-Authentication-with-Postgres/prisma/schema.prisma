@@ -1,0 +1,129 @@
+/**
+ * An SQL Database is a database we can query via the sql language.
+ * - It stores data in the form of rows.
+ * - Most full stack applications will use this
+ * - Example: MySQL, PostgreSQL, etc.
+*/
+
+/**
+ * Why not NoSQL?
+ * - You might've used MongoDB.
+ * - It's schema-less properties make it ideal to for bootstrapping a project
+ *   fast. 
+ * - But as your app grows, this property makes it very easy for data to
+ *   get corrupted.
+ * - Example: You have a user collection, and you want to add a new field
+ *   to it. If you don't do it correctly, you might corrupt the data of
+ *   all the users.
+*/
+
+/**
+ * Problems?
+ * 1. Can lead to inconsistent database
+ * 2. Can cause runtime errors
+ * 3. Is too flexible for an app that needs strictness
+*/
+
+/**
+ * Upsides?
+ * 1. Can move very fast. 
+ * 2. Can change schema very easily.
+*/
+
+/**
+ * You might think that mongoose does add strictness to the codebase because
+ * we used to define a schema there. 
+ * That strictness is present at the Node.js level, not at the DB level.
+ * You can still put in erroneous data in the database that doesn't follow
+ * that schema.
+*/
+
+/**
+ * Why SQL?
+ * SQL databases have a strict schema. They require you to:
+ * 1. Define your schema
+ * 2. Put in data in the database that follows that schema
+ * 3. Update the schema as your app changes and perform migrations.
+ *
+ * So there are 4 parts when using an SQL database (not connecting it to
+ * Node.js, just running it and putting data in it)
+ * 1. Running the database.
+ * 2. Using a library that let's you connect and put data in it.
+ * 3. Creating a table and defining it's schema.
+ * 4. Run queries on the database to interact with the data(insert, update, delete, etc.)
+*/
+
+/**
+ * 1. Create a new project:
+ *    - npx create vite@latest
+ * 2. Install Prisma:
+ *    - npm install prisma @prisma/client
+ * 3. Initialize Prisma:
+ *    - npx prisma init
+*/
+
+/**
+ * Prisma Client:
+ * 1. Provider: prisma-client-js
+ *    - Ye provider humare database models ke hisaab se TypeScript types aur 
+ *      helper functions generate karta hai
+ *    - Isse humein autocomplete suggestions milti hai jab hum database 
+ *      operations likhte hai
+ *    - Har model ke liye specific CRUD operations generate hote hai
+ *    - Type safety bhi provide karta hai taki runtime errors na ho
+ *    - Basically, yhi Prisma Client responsible hai jo mere database k
+ *      saath baat karta hai.
+ * 
+ * 2. Output: ../generated/prisma
+ *    - Generated Prisma Client code ka location specify karta hai
+ *    - By default ye node_modules me generate hota hai
+ *    - Custom location specify karke code ko project directory me 
+ *      store kar sakte hai
+*/
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+/**
+ * Database Connection:
+ * 1. DB Source/Provider: postgresql
+ * 2. DB URL: env("NEON_URL")
+*/
+datasource db {
+  provider = "postgresql"
+  url      = env("NEON_URL")
+}
+
+/**
+ * Create Model:
+ * 4. Create database table (with a schema):
+ *    - One model = One table
+ *    - Once database schema is ready, we need to create the table by using:
+ *      - npx prisma migrate dev 
+ *    - Enter a name for the migration:
+        - "init" (or any other name)
+ *    - This will map the models to the database tables.
+ * 
+ *    Once the migration is created, we need to apply it to the database:
+ *    - npx db push (this will apply the migration to the database)
+ *
+ * 5. Execute Queries with Prisma ORM:
+ *    - npx prisma studio
+ *
+ * Note: Formatting the models code: npx prisma format
+ */
+
+model User {
+  id                  String    @id @default(cuid())
+  name                String
+  email               String    @unique
+  password            String
+  role                String    @default("user")
+  isVerified          Boolean   @default(false)
+  verificationToken   String?
+  passwordResetToken  String?
+  passwordResetExpiry DateTime?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @default(now())
+}

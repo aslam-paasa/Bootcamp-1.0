@@ -1,0 +1,87 @@
+<html>
+
+<head>
+    <title>Auth Website</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.7/axios.min.js"></script>
+    <script>
+        async function signup() {
+            const username = document.getElementById("signup-username").value;
+            const password = document.getElementById("signup-password").value;
+
+            await axios.post("http://localhost:3000/signup", {
+                username: username,
+                password: password
+            });
+            alert("You are signed in");
+
+            // Clear the input fields after signup
+            document.getElementById("signup-username").value = "";
+            document.getElementById("signup-password").value = "";
+        }
+
+
+        async function signin() {
+            const username = document.getElementById("signin-username").value;
+            const password = document.getElementById("signin-password").value;
+            
+            const response = await axios.post("http://localhost:3000/signin", {
+                username: username,
+                password: password
+            });
+
+            localStorage.setItem("token", response.data.token);
+            alert("You are signed in");
+
+            // After signin, get the user information and update in UI
+            getUserInformation();
+
+            // Clear the input fields after signin
+            document.getElementById("signin-username").value = "";
+            document.getElementById("signin-password").value = "";
+        }
+
+
+        async function getUserInformation() {
+            const response = await axios.get("http://localhost:3000/me", {
+                headers: {
+                    token: localStorage.getItem("token")  // Changed from Authorization header to token as per backend
+                }
+            });
+
+            document.getElementById("information").innerHTML = "Username: " + response.data.username + " Password: " + response.data.password;
+        }
+
+        // Implement logout functionality
+        function logout() {
+            localStorage.removeItem("token"); // Remove the token
+            document.getElementById("information").innerHTML = ""; // Clear displayed information
+            alert("You have been logged out");
+        }
+    </script>
+</head>
+
+<body>
+    <div>
+        Signup
+        <input id="signup-username" type="text" name="username" placeholder="username">
+        <input id="signup-password" type="password" name="password" placeholder="password">
+        <button onclick="signup()">Submit</button>
+    </div>
+
+    <div>
+        Signin
+        <input id="signin-username" type="text" name="username" placeholder="username">
+        <input id="signin-password" type="password" name="password" placeholder="password">
+        <button onclick="signin()">Submit</button>
+    </div>
+
+    <div>
+        <h2>User Information:</h2>
+        <div id="information"></div>
+    </div>
+    <div>
+        <button onclick="logout()">Logout</button>
+    </div>
+</body>
+
+</html>
