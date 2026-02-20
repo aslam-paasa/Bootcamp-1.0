@@ -1,0 +1,84 @@
+/**
+ * What is Prisma Client or Generator Client?
+ * - Client is a library that tells Prisma how to create code in backend
+ *   that will talk to the database.
+ * - We need to set two important things:
+ *   1. provider: Tells Prisma to generate code for JavaScript
+ *   2. output  : Tells where to save the generated code 
+ *
+ * Note: We can also generate code for other languages like Python, Java etc.
+*/
+generator client {
+  provider = "prisma-client-js"
+}
+
+/**
+ * Prisma can be used with any SQL database like PostgreSQL, MySQL, etc.
+ * So, we have to specify the database we are using.
+ * - provider = "postgresql"
+ * - url      = env("postgres-credentials")
+ */
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/**
+ * Defining Database Schema:
+ * Model-1: User
+ * Model-2: Todo
+ */
+model User {
+  id        Int    @id @default(autoincrement())
+  username  String @unique
+  password  String
+  age       Int
+  city      String    
+  todos     Todo[]
+}
+
+model Todo {
+  id          Int     @id @default(autoincrement())
+  title       String
+  description String
+  done        Boolean @default(false)
+  userId      Int
+  user        User    @relation(fields: [userId], references: [id])
+}
+
+/**
+ * Database Migrations:
+ * - Think of migrations like taking snapshots of your database structure
+ * - Every time you make changes and runs the migration command, it runs the
+ *   database schema and stores the changes in a migration file.
+ * - This helps track database history and revert if needed
+ *
+ * Migration Commands:
+ * - npx prisma migrate dev --name <migration-name>
+ * - npx prisma migrate dev --name first-migration
+ *
+ * Note: If we do any changes in the schema.prisma file, we need to run the
+ * migration command again.
+ */
+
+
+/**
+ * Generate Client:
+ * - Child represents all the functions that converts:
+ *   - User.create({ email: "harkirat@gmail.com" })
+ *          |
+ *          V
+ *   - INSERT INTO users (email) VALUES ('harkirat@gmail.com')
+ *
+ * Note: Once you've created the prisma/schema.prisma, you can generate
+ *       these clients that you can use in your Node.js app.
+*/
+
+/**
+ * How to generate the client?
+ * - npx prisma generate
+ * - This generate a new client for you.
+ *
+ * Note: Now the next task is to create your first app using this client.
+*/

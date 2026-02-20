@@ -1,0 +1,17 @@
+{
+  "name": "01-postgres-and-sql-databases",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc -b && node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/pg": "^8.15.2",
+    "pg": "^8.16.0",
+    "typescript": "^5.8.3"
+  }
+}
