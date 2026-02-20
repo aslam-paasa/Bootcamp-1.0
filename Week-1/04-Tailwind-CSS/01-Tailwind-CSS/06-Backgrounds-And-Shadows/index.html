@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Backgrounds and Shadows</title>
+
+    <!-- Tailwind CSS CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="p-20">
+
+    <!-- Backgrounds Image -->
+    <!-- https://tailwindcss.com/docs/backgrounds-image -->
+
+    <h1 class="mb-3">1. Backgrounds Image</h1>
+    <div class="h-screen w-full bg-blue-500 bg-cover bg-no-repeat bg-center" style="background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986')"></div>
+    
+    <!-- Shadows -->
+    <!-- https://tailwindcss.com/docs/shadows -->
+
+    <h1 class="mb-3">2. Shadows</h1>
+    <div class="flex flex-wrap">
+        <div class="w-[400px] mt-10 ml-4 p-3 shadow-md">Shadow Medium</div>
+        <div class="w-[400px] mt-10 ml-4 p-3 shadow-lg">Shadow Large</div>
+        <div class="w-[400px] mt-10 ml-4 p-3 shadow-xl">Shadow XLarge</div>
+        <div class="w-[400px] mt-10 ml-4 p-3 shadow-2xl">Shadow 2XLarge</div>
+
+        <div class="w-[400px] mt-10 ml-4 mb-5 p-3 shadow-inner">Shadow Inner</div>
+    </div>
+
+    <!-- Colors and Shadows -->
+
+    <h1 class="mb-3">3. Colors and Shadows</h1>
+    <div class="w-[400px] mt-10 ml-4 mb-10 p-3 shadow-lg shadow-teal-300">Color and Shadow</div>
+    <div class="w-[400px] mt-10 ml-4 mb-10 p-3 shadow-lg shadow-teal-300/50">Color and Shadow</div>
+
+    
+    <!-- Gradients -->
+    <!-- https://tailwindcss.com/docs/gradients -->
+     <!-- It contains two things: 
+          a. Which color to start with
+          b. Which color to end with
+          c. Direction of the gradient
+     -->
+
+    <h1 class="mb-3">4. Gradients</h1>
+    <div class="b-40 bg-gradient-to-r from-teal-100 to-green-500 m-10 text-center p-40">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque laborum facilis tenetur fugiat vitae. Consectetur ullam ipsum nesciunt recusandae, autem ipsam delectus inventore eum deleniti quibusdam quaerat vel rem magni.</div>
+    <div class="b-40 bg-gradient-to-r from-red-100 via-[crimson]-300 to-red-400 m-10 text-center p-40">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque laborum facilis tenetur fugiat vitae. Consectetur ullam ipsum nesciunt recusandae, autem ipsam delectus inventore eum deleniti quibusdam quaerat vel rem magni.</div>
+    
+</body>
+</html>

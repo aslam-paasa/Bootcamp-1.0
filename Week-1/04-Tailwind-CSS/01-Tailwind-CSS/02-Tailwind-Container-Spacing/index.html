@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind CSS CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Tailwind Container Spacing</title>
+
+    <style>
+        body {
+            padding: 5rem;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 1. Margin -->
+    <!-- https://tailwindcss.com/docs/margin -->
+
+    <h3>1. Margin</h3>
+    <div class="m-4 bg-yellow-100">Margin All Around</div>
+    <div class="mx-4 bg-yellow-200">Margin from x-axis</div>
+    <div class="my-4 bg-yellow-300">Margin from y-axis</div>
+    <div class="mt-4 bg-yellow-400">Margin Top</div>
+    <div class="mr-4 bg-yellow-500">Margin Right</div>
+    <div class="ml-4 bg-yellow-600">Margin Left</div>
+    <div class="mb-4 bg-yellow-700">Margin Bottom</div>
+
+    <!-- Arbitrary Spacing -->
+    <div class="m-[50px] bg-slate-700">Custom Margin All Around</div>
+
+    <br>
+    <hr>
+    <br>
+
+    <!-- 2. Padding -->
+    <!-- https://tailwindcss.com/docs/padding -->
+
+    <h3>3. Padding</h3>
+    <div class="p-4 bg-indigo-100">Padding All Around</div>
+    <div class="px-4 bg-indigo-200">Padding from X axis</div>
+    <div class="py-4 bg-indigo-300">Padding from Y axis</div>
+    <div class="pt-4 bg-indigo-400">Padding Top</div>
+    <div class="pr-4 bg-indigo-500">Padding Right</div>
+    <div class="pl-4 bg-indigo-600">Padding Left</div>
+    <div class="pb-4 bg-indigo-700">Padding Bottom</div>
+
+    <!-- Arbitrary Spacing -->
+    <div class="p-[50px] bg-indigo-700">Padding All Around</div>
+    
+    <br>
+    <hr>
+    <br>
+
+    <!-- Spacing Between X -->
+    <!-- https://tailwindcss.com/docs/space -->
+    <h3>4. Spacing Between X</h3>
+    <div class="flex space-x-4">
+        <div class="p-3 bg-teal-100">01</div>
+        <div class="p-3 bg-teal-200">02</div>
+        <div class="p-3 bg-teal-300">03</div>
+    </div>
+
+    <br>
+    <hr>
+    <br>
+
+    <!-- Spacing Between Y -->
+    <!-- https://tailwindcss.com/docs/space -->
+    <h3>5. Spacing Between Y</h3>
+    <div class="flex space-y-4">
+        <div class="p-3 bg-teal-100">01</div>
+        <div class="p-3 bg-teal-200">02</div>
+        <div class="p-3 bg-teal-300">03</div>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Colors</title>
+    
+    <!-- Tailwind CSS CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="p-20">
+
+    <!-- Position -->
+    <!-- https://tailwindcss.com/docs/position -->
+
+    <h1 class="mb-3">1. Position</h1>
+    <div class="relative w-1/2 h-40 bg-green-200">
+        <p>Relative</p>
+        <div class="absolute bottom-0 right-0 bg-teal-500 p-4">
+            <p>Absolute</p>
+        </div>
+    </div>
+
+    <div class="relative w-1/2 h-40 bg-green-200 mt-5">
+        <p>Relative</p>
+        <div class="absolute left-0 top-0 bg-teal-500 p-4">
+            <p>Absolute</p>
+        </div>
+    </div>
+
+    <div class="relative w-1/2 h-40 bg-green-200 mt-5">
+        <p>Relative</p>
+        <div class="absolute right-0 top-0 bg-teal-500 p-4">
+            <p>Absolute</p>
+        </div>
+    </div>
+
+    <div class="relative w-1/2 h-40 bg-green-200 mt-5">
+        <p>Relative</p>
+        <div class="absolute bottom-0 bg-teal-500 p-4">
+            <p>Absolute</p>
+        </div>
+    </div>
+    
+    <!-- Display -->
+    <!-- https://tailwindcss.com/docs/display -->
+
+    <h1 class="mb-3">2. Display</h1>
+    <div class="bg-indigo-100 p-10 mb-10 w-[600px]">
+        <span class="inline bg-orange-200 w-[100px] h-[200px]">1. This is display inline and wrap normally</span>
+        <span class="inline-block bg-orange-200 w-[100px] h-[200px]">2. This is display inline-block and will not extend beyong its parent.</span>
+        <span class="block bg-orange-200 w-[100px] h-[200px]">3. This is display block and will move to it's own line.</span>
+        <span class="hidden bg-orange-200 w-[100px] h-[200px]">4. This is display hidden and will not be visible.</span>
+    </div>
+    
+    
+</body>
+</html>

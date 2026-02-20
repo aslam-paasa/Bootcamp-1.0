@@ -1,4 +1,0 @@
-/***
- * Lexical Scope and Closures:
-*/
-

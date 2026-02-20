@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Borders</title>
+
+    <!-- Tailwind CSS CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="p-20">
+    
+    <!-- Border Width & Color -->
+    <!-- https://tailwindcss.com/docs/border-width -->
+
+    <h1 class="mb-3">1. Border Width & Color</h1>
+    <div class="border-2 border-green-100 m-10">
+        <div class="w-96 m-3 p-5 border">Border all around</div>
+        <div class="w-96 m-3 p-5 border-2">Border all around</div>
+        <div class="w-96 m-3 p-5 border-4">Border all around</div>
+        <div class="w-96 m-3 p-5 border border-red-500">Colored Border</div>
+        <div class="w-96 m-3 p-5 border-x-4 border-red-500">Border applied to X-axis</div>
+        <div class="w-96 m-3 p-5 border-y-4 border-red-500">Border applied to Y-axis</div>
+        <div class="w-96 m-3 p-5 border-l-4 border-red-500">Border applied to Left</div>
+        <div class="w-96 m-3 p-5 border-r-4 border-red-500">Border applied to Right</div>
+        <div class="w-96 m-3 p-5 border-t-4 border-red-500">Border applied to Top</div>
+        <div class="w-96 m-3 p-5 border-b-4 border-red-500">Border applied to Bottom</div>
+    </div>
+    
+    <!-- Border Radius -->
+    <!-- https://tailwindcss.com/docs/border-radius -->
+
+    <h1 class="mb-3">2. Border Radius</h1>
+    <div class="border-2 border-green-100 m-10">
+        <div class="w-96 m-3 p-5 bg-teal-200 rounded">Border Rounded</div>
+        <div class="w-96 m-3 p-5 bg-teal-200 rounded-lg">Border Rounded lg</div>
+        <div class="w-96 m-3 p-5 bg-teal-200 rounded-xl">Border Rounded xl</div>
+        <div class="w-96 m-3 p-5 bg-teal-200 rounded-2xl">Border Rounded 2xl</div>
+        <div class="w-96 m-3 p-5 bg-teal-200 rounded-3xl">Border Rounded 3xl</div>
+        <div class="w-96 m-3 p-5 bg-teal-200 rounded-full">Border Rounded full</div>
+    </div>    
+    
+    <!-- Specific Sides -->
+    <!-- https://tailwindcss.com/docs/border-radius -->
+
+    <h1 class="mb-3">3. Specific Sides</h1>
+    <div class="border-2 border-green-100 m-10">
+        <div class="w-96 m-3 p-5 bg-purple-200 rounded-t-lg">Border Top Rounded</div>
+        <div class="w-96 m-3 p-5 bg-purple-200 rounded-b-lg">Border Bottom Rounded</div>
+        <div class="w-96 m-3 p-5 bg-purple-200 rounded-r-lg">Border Right Rounded</div>
+        <div class="w-96 m-3 p-5 bg-purple-200 rounded-l-lg">Border Left Rounded</div>
+    </div>
+</body>
+</html>

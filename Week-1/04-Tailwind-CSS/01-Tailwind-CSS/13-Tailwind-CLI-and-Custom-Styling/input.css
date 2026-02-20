@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+
+/* Custom Styling */
+@layer base {
+    a {
+        @apply text-blue-500;
+    }
+}
+
+
+/* Custom Tailwind Components */
+@layer components {
+    .menu-component {
+        @apply text-white bg-indigo-500 p-3;
+    }
+}
+
+
+/* Custom Tailwind Utilities */
+@layer utilities {
+    .text-salmon-200 {
+        color: salmon;
+    }
+}

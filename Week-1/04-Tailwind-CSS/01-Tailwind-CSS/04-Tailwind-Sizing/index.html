@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Sizing</title>
+
+    <!-- Tailwind CSS CDN Link -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="p-20">
+    
+    <!-- Width -->
+    <!-- https://tailwindcss.com/docs/width -->
+
+    <h1>1. Width all around</h1>
+    <div class="bg-teal-100 p-5">
+        <div class="bg-red-600 m-1 w-0">0</div>
+        <div class="bg-red-600 m-1 w-1">1</div>
+        <div class="bg-red-600 m-1 w-1.5">1.5</div>
+        <div class="bg-red-600 m-1 w-2">2</div>
+        <div class="bg-red-600 m-1 w-3">3</div>
+        <div class="bg-red-600 m-1 w-5">5</div>
+        <div class="bg-red-600 m-1 w-6">6</div>
+        <div class="bg-red-600 m-1 w-7">7</div>
+        <div class="bg-red-600 m-1 w-8">8</div>
+        <div class="bg-red-600 m-1 w-9">9</div>
+        <div class="bg-red-600 m-1 w-10">10</div>
+        <div class="bg-red-600 m-1 w-11">11</div>
+        <div class="bg-red-600 m-1 w-12">12</div>
+        <div class="bg-red-600 m-1 w-14">14</div>
+        <div class="bg-red-600 m-1 w-16">16</div>
+        <div class="bg-red-600 m-1 w-20">20</div>
+        <div class="bg-red-600 m-1 w-24">24</div>
+        <div class="bg-red-600 m-1 w-28">28</div>
+        <div class="bg-red-600 m-1 w-32">32</div>
+        <div class="bg-red-600 m-1 w-36">36</div>
+        <div class="bg-red-600 m-1 w-48">48</div>
+        <div class="bg-red-600 m-1 w-64">64</div>
+    </div>
+    
+
+    <!-- Percentages -->
+     <h1 class="mt-5">2. Percentages</h1>
+     <div class="bg-indigo-400 mb-5 p-5">
+        <div class="bg-green-400 p-2 mb-4 w-1/2">1/2</div>
+        <div class="bg-green-400 p-2 mb-4 w-1/3">1/3</div>
+        <div class="bg-green-400 p-2 mb-4 w-1/4">1/4</div>
+        <div class="bg-green-400 p-2 mb-4 w-2/4">2/4</div>
+        <div class="bg-green-400 p-2 mb-4 w-3/4">3/4</div>
+        <div class="bg-green-400 p-2 mb-4 w-4/5">4/5</div>
+        <div class="bg-green-400 p-2 mb-4 w-1/5">1/5</div>
+     </div>
+
+    <!-- Max Width -->
+    <!-- https://tailwindcss.com/docs/max-width -->
+
+    <h1 class="mt-5">3. Max Width</h1>
+    <div class="bg-yellow-100 p-10 mb-10 max-w-lg">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, quas cupiditate. Labore praesentium accusantium in temporibus harum, velit odio sit ratione nulla quam deleniti possimus necessitatibus, exercitationem suscipit tempore officia eos iusto, repellat dolorem veritatis dolor at? Commodi porro iure atque dicta, ab quisquam dolor at, cupiditate quam est, fugit vel? Tempora perspiciatis cumque fugit unde atque numquam aperiam molestiae adipisci quasi enim. Iste laborum perferendis odit est autem dicta. Accusamus deserunt officia quisquam placeat eius repellat optio cumque iste sequi deleniti, accusantium harum error nulla aperiam dicta nam. Id quisquam rerum magni eaque molestiae hic tempore vel eius totam.
+    </div>
+
+    <!-- Width of the viewport -->
+    <!-- 100% of the container -->
+
+    <h1 class="mt-5">4. VW & Width 100%</h1>
+    <div class="bg-green-500 my-2 p-5 w-screen">(vw) screen</div>
+    <div class="bg-green-500 my-2 p-5 w-full">(width 100%) w-full</div>
+    <div class="bg-green-500 my-2 p-5 w-1/2">(vw) 1/2</div>
+
+    <!-- Arbitrary Width -->
+
+    <h1 class="mt-5">5. Arbitrary Width</h1>
+    <div class="bg-teal-500 text-white my-2 w-[500px]">w-[500px]</div>
+    <div class="bg-teal-500 text-white my-2 w-[50%]">w-[50%]</div>
+
+    <!-- Height(Most of the same options as widths) -->
+    <!-- https://tailwindcss.com/docs/height -->
+
+    <h1 class="mt-5">6. Height</h1>
+    <div class="flex item-end mt-20 mb-10">
+        <div class="bg-indigo-400 ml-5 h-24">Height-24</div>
+        <div class="bg-indigo-400 ml-5 h-32">Height-32</div>
+        <div class="bg-indigo-400 ml-5 h-40">Height-40</div>
+        <div class="bg-indigo-400 ml-5 h-48">Height-48</div>
+        <div class="bg-indigo-400 ml-5 h-56">Height-56</div>
+        <div class="bg-indigo-400 ml-5 h-64">Height-64</div>
+        <div class="bg-indigo-400 ml-5 h-72">Height-72</div>
+        <div class="bg-indigo-400 ml-5 h-[200px]">Height-200px</div>        
+    </div>
+    
+
+    <!-- Min Height -->
+    <!-- https://tailwindcss.com/docs/min-height -->
+
+    <h1 class="mt-5">7. Min Height Full</h1>
+    <div class="p-5 h-[400px] bg-green-300 mb-5">
+        <div class="min-h-full bg-teal-400">Take Full Height</div>        
+    </div>
+    
+
+    <!-- Max Height -->
+    <!-- https://tailwindcss.com/docs/max-height -->
+
+    <h1 class="mt-5">8. Max Height</h1>
+    <div class="h-[150px] bg-orange-300 mb-5">
+        <div class="m-20 bg-orange-500 h-48 max-h-full">Max Height Full</div>        
+    </div>
+
+    <!-- Full Screen Height -->
+
+    <h1 class="mb-2">9. Full Screen Height</h1>
+    <div class="bg-pink-300 mb-4 h-screen">Full Screen Height</div>
+
+    <!-- Width Auto -->
+    
+    <h1 class="mb-2">10. Width Auto</h1>
+    <div class="bg-green-400 p-5 w-auto">Auto</div>
+
+    <!-- Height Auto -->
+
+    <h1 class="mb-2">11. Height Auto</h1>
+    <div class="bg-green-400 p-5 h-auto">Auto</div>
+</body>
+</html>

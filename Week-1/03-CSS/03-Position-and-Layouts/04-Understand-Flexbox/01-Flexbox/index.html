@@ -113,6 +113,8 @@
          *    - Flexbox (Flexible Box) is a CSS layout model that provides an
          *      efficient way to arrange items within a container, even if
          *      their sizes are dynamic.
+         *    - Flexbox makes it easier to design a flexible responsive layout
+         *      structure, without using float or positioning.
          *    - It helps create responsive designs with ease.
          * 
          *    - Flexbox works in ONE direction at a time:
@@ -166,10 +168,24 @@
          *           flex-direction: row;  (Items arranged in a row)
          *        }
          * 
-         * 1.c. justify-content:
-         *      - Aligns flex items along with main axis.
-         *      - Think of it as horizontal alignment (in row).
-         *      - Values:
+         *      - Flexbox always works with two directions:
+         *         Main Axis & Cross Axis:
+         *         - Direction decided by flex-direction
+         *         - Thi is the PRIMARY direction of items.
+         *         - If flex-direction: row
+         *           > Main Axis = left-to-right
+         *           > Cross Axis = Top-to-Bottom
+         * 
+         * 1.c. justify-content: (Main Axis Alignment)
+         *      - justify-content moves along with MAIN AXIS
+         *      - Think: "How items are spread in the direction they flow"
+         * 
+         *      a. When flex-direction: row
+         *         justify-content controls LEFT <-> RIGHT spacing
+         *      b. When flex-direction: column
+         *         justify-content controls TOP <-> BOTTOM spacing
+         *        
+         *      - Common Values:
          *        a. flex-start (default): Items start from the left.
          *        b. flex-end            : Items start from the right.
          *        c. center              : items centered.
@@ -182,15 +198,22 @@
          *           justify-content: space-between;
          *        }
          * 
-         * 1.d. align-items
-         *      - Aligns flex items along with cross axis.
-         *      - Think of it as vertical alignment (in row).
-         *      - Values:
+         * 1.d. align-items (CROSS Alignment)
+         *      - align-items moves items ALONG the CROSS AXIS
+         *      - Think: "How items are aligned perpendicular to flow"
+         * 
+         *        a. When flex-direction: row
+         *           align-items controls TOP ↕ BOTTOM alignment
+         *        b. When flex-direction: column
+         *           align-items controls LEFT ↔ RIGHT alignment
+         * 
+         *      - Common Values:
          *        a. stretch (default): Items stretch to fill container.
          *        b. flex-start       : Aligns items at the top.
          *        c. flex-end         : Aligns items at the bottom.
          *        d. center           : Align items at the center.
          *        e. baseline         : Aligns items based on their text baseline
+         * 
          *      - Example:
          *        .container {
          *           display: flex;
