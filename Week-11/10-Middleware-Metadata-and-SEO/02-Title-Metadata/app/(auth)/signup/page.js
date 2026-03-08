@@ -1,0 +1,19 @@
+import React from 'react'
+
+/**
+ * Absolute Metadata:
+*/
+
+export const metadata = {
+  title: {
+    absolute: "Signup",
+  }
+}
+
+const signup = () => {
+  return (
+    <div>signup</div>
+  )
+}
+
+export default signup
