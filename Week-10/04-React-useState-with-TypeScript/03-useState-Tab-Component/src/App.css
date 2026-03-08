@@ -1,0 +1,60 @@
+/* Container Styles */
+.posts-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f9fafb, #e5e7eb);
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Title */
+.posts-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 40px;
+}
+
+/* Grid Layout */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Post Card */
+.post-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  aspect-ratio: 1 / 1; /* Makes each card a perfect square */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hover Effects */
+.post-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Post Title */
+.post-card h2 {
+  font-size: 18px;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+/* Post Content */
+.post-card p {
+  font-size: 14px;
+  color: #666;
+}
