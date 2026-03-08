@@ -1,0 +1,19 @@
+.App {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.starContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.starDiv {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out; /* Smooth animation on hover */
+}
+
+.starDiv:hover {
+    transform: scale(1.2); /* Slight zoom-in effect */
+}

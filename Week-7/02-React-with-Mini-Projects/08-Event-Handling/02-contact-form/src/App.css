@@ -1,0 +1,9 @@
+.form-fields {
+  margin-bottom: 20px;
+}
+
+.password-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

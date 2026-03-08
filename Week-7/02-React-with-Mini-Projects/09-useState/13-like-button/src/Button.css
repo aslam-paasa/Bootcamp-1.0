@@ -1,0 +1,47 @@
+/* Default button styling */
+.buttonHolder {
+    border: 2px solid #3498db;
+    width: 25%;
+    padding: 12px;
+    border-radius: 25px;
+    margin: 20px;
+    color: #2c3e50;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Span styling for text alignment */
+span {
+    font-size: 18px;
+    margin-right: 20px;
+    font-weight: 600;
+}
+
+/* Button hover styling */
+.buttonHolder:hover {
+    border: 2px solid #e74c3c;
+    color: #e74c3c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+}
+
+/* Liked button styling */
+.buttonHolderLiked {
+    border: 2px solid #e74c3c;
+    width: 25%;
+    padding: 12px;
+    border-radius: 25px;
+    margin: 20px;
+    color: #fff;
+    background-color: #e74c3c;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(231,76,60,0.3);
+}
+
+.buttonHolderLiked:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(231,76,60,0.4);
+}

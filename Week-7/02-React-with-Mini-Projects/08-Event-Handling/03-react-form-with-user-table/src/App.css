@@ -1,0 +1,36 @@
+#leftDiv {
+  width: 30%;
+  background-color: black;
+  float: left;
+  height: 460px;
+}
+
+#leftDiv, #rightDiv center h2 {
+  color: white;
+  font-family: candara;
+}
+
+input {
+  margin: 5px;
+  height: 26px;
+  width: 250px;
+  font-size: 17px;
+  font-family: candara;
+}
+
+input[type='submit'] {
+  height: 30px;
+  width: 260px;
+  border: 0px;
+  font-size: 17px;
+  font-family: candara;
+  color: white;
+  background-color: violet;
+}
+
+#rightDiv {
+  width: 70%;
+  background-color: darkslategrey;
+  float: left;
+  height: 460px;
+}

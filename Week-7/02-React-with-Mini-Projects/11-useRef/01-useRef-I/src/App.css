@@ -1,0 +1,651 @@
+/* ============================================================
+   Global Reset
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f1f5f9;
+  color: #1e293b;
+  padding: 24px;
+  line-height: 1.6;
+}
+
+
+/* ============================================================
+   App wrapper
+   ============================================================ */
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+/* ============================================================
+   Typography
+   ============================================================ */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #334155;
+  margin: 24px 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 0.9rem;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+ul {
+  padding-left: 18px;
+  margin-bottom: 8px;
+}
+
+li {
+  font-size: 0.875rem;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+
+/* ============================================================
+   Section Cards — each component is wrapped in .section
+   ============================================================ */
+.section {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+
+/* ============================================================
+   Buttons
+   ============================================================ */
+button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 18px;
+  border-radius: 7px;
+  border: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+button:hover:not(:disabled) {
+  opacity: 0.85;
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button:disabled {
+  background: #e2e8f0 !important;
+  color: #94a3b8 !important;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Variants */
+.btn-primary {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.btn-success {
+  background: #22c55e;
+  color: #fff;
+}
+
+.btn-danger {
+  background: #ef4444;
+  color: #fff;
+}
+
+.btn-gray {
+  background: #64748b;
+  color: #fff;
+}
+
+.btn-active {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.btn-inactive {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+/* Button group row */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+
+/* ============================================================
+   Input
+   ============================================================ */
+input[type="text"],
+input[type="search"] {
+  padding: 8px 12px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 7px;
+  font-size: 0.875rem;
+  color: #0f172a;
+  background: #f8fafc;
+  outline: none;
+  width: 100%;
+  max-width: 320px;
+  margin-top: 4px;
+  transition: border-color 0.15s ease;
+}
+
+input[type="text"]:focus,
+input[type="search"]:focus {
+  border-color: #3b82f6;
+  background: #fff;
+}
+
+
+/* ============================================================
+   Note / Hint Boxes
+   ============================================================ */
+.note {
+  background: #eff6ff;
+  border-left: 3px solid #3b82f6;
+  padding: 10px 14px;
+  border-radius: 0 6px 6px 0;
+  margin-top: 14px;
+  font-size: 0.82rem;
+  color: #1e40af;
+}
+
+.note-warning {
+  background: #fffbeb;
+  border-left-color: #f59e0b;
+  color: #92400e;
+}
+
+.note-error {
+  background: #fef2f2;
+  border-left-color: #ef4444;
+  color: #991b1b;
+}
+
+.note-success {
+  background: #f0fdf4;
+  border-left-color: #22c55e;
+  color: #166534;
+}
+
+
+/* ============================================================
+   Effect Log — Case 3
+   ============================================================ */
+.log-label {
+  margin-top: 14px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #334155;
+}
+
+.effect-log {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 10px 14px;
+  max-height: 140px;
+  overflow-y: auto;
+  margin-top: 6px;
+  list-style: none;
+  padding-left: 14px;
+}
+
+.effect-log li {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: #3b82f6;
+  padding: 3px 0;
+  border-bottom: 1px dashed #e2e8f0;
+}
+
+.effect-log li:last-child {
+  border-bottom: none;
+}
+
+
+/* ============================================================
+   Stopwatch
+   ============================================================ */
+.stopwatch-time {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 6px;
+  margin: 10px 0 6px 0;
+  font-family: 'Courier New', monospace;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.status-running {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status-stopped {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* Internal cleanup timer */
+.internal-timer {
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #f8fafc;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+  display: inline-block;
+}
+
+
+/* ============================================================
+   Window Size Tracker
+   ============================================================ */
+.size-display {
+  display: flex;
+  gap: 14px;
+  margin: 14px 0;
+}
+
+.size-box {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 24px;
+  text-align: center;
+  min-width: 110px;
+}
+
+.size-label {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.size-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3b82f6;
+  font-family: 'Courier New', monospace;
+}
+
+
+/* ============================================================
+   Search Results
+   ============================================================ */
+.searching-text {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  margin-top: 8px;
+  font-style: italic;
+}
+
+.search-results {
+  margin-top: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+}
+
+.search-results li {
+  padding: 10px 14px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.875rem;
+  color: #334155;
+}
+
+.search-results li:last-child {
+  border-bottom: none;
+}
+
+
+/* ============================================================
+   Multiple Effects — User + Posts Grid
+   ============================================================ */
+.user-posts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+@media (max-width: 560px) {
+  .user-posts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.info-box {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 14px;
+}
+
+.info-box p {
+  font-size: 0.83rem;
+  margin-bottom: 4px;
+}
+
+
+/* ============================================================
+   useRef — Tax Value Highlight
+   ============================================================ */
+.tax-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #3b82f6;
+  font-family: 'Courier New', monospace;
+  background: #eff6ff;
+  padding: 2px 10px;
+  border-radius: 6px;
+}
+
+
+/* ============================================================
+   useRef — StyleWithRef card
+   ============================================================ */
+.ref-card {
+  padding: 20px 24px;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  width: fit-content;
+  min-width: 220px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: #334155;
+  margin-bottom: 4px;
+  transition: all 0.3s ease;
+}
+
+
+/* ============================================================
+   useRef — FormValidation inputs stacked
+   ============================================================ */
+.validation-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 280px;
+  margin: 12px 0 4px 0;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.validation-form input {
+  max-width: 100%;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+
+/* ============================================================
+   useRef — Clock display
+   ============================================================ */
+.clock-display {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 4px;
+  margin: 8px 0 4px 0;
+}
+
+
+/* ============================================================
+   useRef — Compare Grid (useState vs useRef, normal vs ref)
+   ============================================================ */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 14px 0;
+}
+
+@media (max-width: 500px) {
+  .compare-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.compare-box {
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.compare-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 6px;
+}
+
+.compare-value {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  margin: 8px 0;
+}
+
+.compare-hint {
+  font-size: 0.78rem;
+  margin-top: 6px;
+}
+
+/* Color variants */
+.compare-blue {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.compare-orange {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.compare-red {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.compare-green {
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+
+/* ============================================================
+   useRef — Render counter (3B vs 3C comparison)
+   ============================================================ */
+.render-counter {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  margin: 6px 0 10px 0;
+}
+
+
+/* ============================================================
+   useRef — Stopwatch History
+   ============================================================ */
+.history-box {
+  margin-top: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 14px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.history-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #475569;
+  margin: 0;
+}
+
+.history-header button {
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.history-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 130px;
+  overflow-y: auto;
+}
+
+.history-list li {
+  padding: 7px 14px;
+  font-size: 0.82rem;
+  color: #334155;
+  border-bottom: 1px solid #f1f5f9;
+  font-family: 'Courier New', monospace;
+}
+
+.history-list li:last-child {
+  border-bottom: none;
+}
+
+.history-empty {
+  color: #94a3b8 !important;
+  font-style: italic;
+}
+
+
+/* ============================================================
+   useRef — Form field with inline button
+   ============================================================ */
+.field-with-btn {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.field-with-btn input {
+  flex: 1;
+  max-width: none;
+}
+
+.field-with-btn button {
+  margin: 0;
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   useRef — Tweet textarea
+   ============================================================ */
+.tweet-box {
+  width: 100%;
+  max-width: 380px;
+  padding: 10px 12px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: #0f172a;
+  background: #f8fafc;
+  resize: vertical;
+  outline: none;
+  font-family: inherit;
+  transition: border-color 0.15s ease;
+  display: block;
+  margin-top: 8px;
+}
+
+.tweet-box:focus {
+  border-color: #3b82f6;
+  background: #fff;
+}

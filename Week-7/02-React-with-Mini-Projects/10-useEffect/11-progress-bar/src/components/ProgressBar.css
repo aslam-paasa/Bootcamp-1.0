@@ -1,0 +1,18 @@
+.progressBar {
+    width: 100%;
+    background-color: lightgrey;
+    margin-top: 20px;
+    border-radius: 5px;
+    overflow: hidden;  /* Prevents overflow of progressHolder beyond */
+}
+
+.progressHolder {
+    background-color: lightcoral;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    transition: width 0.1s ease-in-out;  /* Smooth animation for width changes */
+    
+}

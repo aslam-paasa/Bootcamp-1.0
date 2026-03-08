@@ -1,0 +1,135 @@
+/* 🔹 Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0d1117; /* Dark background */
+  color: #e6edf3; /* Soft white text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* 🔹 Main Container */
+article {
+  background: #161b22; /* Slightly lighter dark container */
+  padding: 24px;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+/* 🔹 Notes Box */
+article div {
+  border: 1px solid #30363d; /* Subtle border */
+  border-radius: 12px;
+  padding: 16px;
+  background: #21262d; /* Darker contrast background */
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+/* 🔹 Smooth Scrollbar */
+article div::-webkit-scrollbar {
+  width: 6px;
+}
+
+article div::-webkit-scrollbar-thumb {
+  background: #484f58;
+  border-radius: 3px;
+}
+
+/* 🔹 Form */
+form {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  padding-top: 16px;
+}
+
+/* 🔹 Input Field */
+form input {
+  flex-grow: 1;
+  padding: 12px;
+  border: 2px solid #30363d;
+  border-radius: 6px;
+  background: #161b22;
+  color: #e6edf3;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s ease-in-out;
+}
+
+form input:focus {
+  border-color: #58a6ff;
+  box-shadow: 0 0 5px #58a6ff;
+}
+
+/* 🔹 Submit Button */
+form button {
+  background: #238636;
+  border: none;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+form button:hover {
+  background: #2ea043;
+}
+
+/* 🔹 Notes List */
+ul {
+  margin: 0;
+  padding: 0;
+  height: 300px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 🔹 Individual Notes */
+li {
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  max-width: 80%;
+  word-wrap: break-word;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  position: relative;
+  line-height: 1.4;
+  transition: 0.3s ease-in-out;
+}
+
+/* 🔹 Left-Side Notes (User Messages) */
+li:nth-child(odd) {
+  align-self: flex-start;
+  background: #484f58;
+  border-radius: 12px 12px 12px 4px;
+  color: white;
+}
+
+/* 🔹 Right-Side Notes (Bot/Other Messages) */
+li:nth-child(even) {
+  align-self: flex-end;
+  background: #58a6ff;
+  color: #0d1117;
+  border-radius: 12px 12px 4px 12px;
+}
+
+/* 🔹 Hover Effect */
+li:hover {
+  transform: scale(1.02);
+}
+
+/* 🔹 Last Note Spacing */
+li:last-child {
+  margin-bottom: 20px;
+}
