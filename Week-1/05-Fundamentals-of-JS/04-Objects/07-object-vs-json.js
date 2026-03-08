@@ -120,3 +120,13 @@ const invalidJSON = {
         console.log("Hello");
     }
 };
+
+
+/**
+ * 1. Understand Serialization and Deserialization
+ * 2. Teleporting a Human - Understanding Serialization & Deserialization in JS
+ * 3. Explain serialization as converting a human into structured data (e.g., JSON)
+ * 4. Use a JS example to serialize and deserialize a person object
+ * 5. Discuss challenges like data loss, corruption, and format incompatability
+ * 6. Keep it engaging with teleportation analogy
+ * */
