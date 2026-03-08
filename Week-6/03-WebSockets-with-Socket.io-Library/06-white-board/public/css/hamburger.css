@@ -1,0 +1,32 @@
+.hamburger {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border: none;
+  background: none;
+}
+
+.hamburger .line {
+  width: 30px;
+  height: 3px;
+  background-color: #333;
+  display: block;
+  margin: 6px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Animation when active */
+#hamburger-1.is-active .line:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+#hamburger-1.is-active .line:nth-child(2) {
+  opacity: 0;
+}
+
+#hamburger-1.is-active .line:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}

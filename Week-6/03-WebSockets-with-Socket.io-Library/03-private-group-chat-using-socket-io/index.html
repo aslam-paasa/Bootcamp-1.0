@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+</head>
+<body>
+    <h1>Chat App</h1>
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <input type="text" placeholder="Enter room id" id="roomId">
+        <button onclick="joinRoom()">Join Room</button>
+        <span id="roomStatus"></span>
+    </div>
+    <div id="messageDisplay"
+        style="height: 50vh; width: 50vw; background-color: cornflowerblue; margin-bottom: 20px; margin-top: 20px;">
+    </div>
+    <input type="text" style="height: 10vh; width: 50vw" placeholder="Enter your message" id="message">
+    <button onclick="sendMessage()">Send</button>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        // portNo + IP = unique socketId
+        const socket = io();
+
+        // Creating socket connection
+        socket.on('connect', () => {
+            console.log('Connected to server', socket.id);
+        });
+
+        const messageBox = document.getElementById('messageDisplay');
+        const messageInput = document.getElementById('message');
+        const roomInput = document.getElementById('roomId');
+        const roomStatus = document.getElementById('roomStatus');
+        let roomIdValue = '';
+
+
+        function sendMessage() {
+            const message = messageInput.value;
+            socket.emit('message', {message, roomId: roomIdValue});
+            const element = document.createElement('div');
+            element.textContent = message;
+            element.style.textAlign = 'right';
+            messageBox.appendChild(element);
+            messageInput.value = '';
+        }
+
+        // Receive message from server
+        socket.on('new-message', ({message}) => {
+            const element = document.createElement('div');
+            element.textContent = message;
+            messageBox.appendChild(element);
+        });
+
+        // Creating room for private group chat and joining the room
+        function joinRoom() {
+            const roomId = roomInput.value;
+            if(roomId) {
+                roomIdValue = roomId;
+                socket.emit('join-room', roomId);
+                roomStatus.textContent = `You have joined room no ${roomId}`;
+                roomInput.value = '';
+            } else {
+                roomIdValue = '';
+                roomStatus.textContent = '';
+            }
+        }
+
+        // Handle disconnect
+        socket.on('disconnect', () => {
+            roomIdValue = '';
+            roomStatus.textContent = '';
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-to-One Chat App</title>
+</head>
+<body>
+    <h1>Private Chat</h1>
+    <p>Your Socket ID: <span id="myId"></span></p>
+
+    <div id="messageDisplay" 
+         style="height: 50vh; width: 50vw; background-color: #f0f0f0; margin-bottom: 20px; overflow-y: auto; padding: 10px; border: 1px solid #ccc;"></div>
+
+    <!-- Input for recipient ID -->
+    <input type="text" id="recipientId" placeholder="Enter recipient socket ID" style="width: 50vw; height: 5vh; margin-bottom: 10px;"><br>
+
+    <!-- Input for message -->
+    <input type="text" id="message" placeholder="Enter your message" style="width: 50vw; height: 5vh;">
+    <button onclick="sendMessage()">Send</button>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        const messageBox = document.getElementById('messageDisplay');
+        const messageInput = document.getElementById('message');
+        const recipientInput = document.getElementById('recipientId');
+        const myIdSpan = document.getElementById('myId');
+
+        // Show your socket id
+        socket.on('connect', () => {
+            myIdSpan.textContent = socket.id;
+            console.log("Connected with ID:", socket.id);
+        });
+
+        function sendMessage() {
+            const message = messageInput.value;
+            const recipient = recipientInput.value;
+
+            if (!recipient || !message) {
+                alert("Enter both recipient ID and a message");
+                return;
+            }
+
+            // Send private message with recipientId
+            socket.emit("private-message", { recipientId: recipient, message });
+
+            // Show my own message
+            const element = document.createElement("div");
+            element.textContent = `${recipient}: ${message}`;
+            element.style.color = "blue";
+            element.style.textAlign = "right";
+            messageBox.appendChild(element);
+
+            messageInput.value = "";
+        }
+
+        // Receive private message
+        socket.on("private-message", (data) => {
+            const element = document.createElement("div");
+            element.textContent = `${data.senderId} → Me: ${data.message}`;
+            element.style.color = "green";
+            messageBox.appendChild(element);
+        });
+    </script>
+</body>
+</html>

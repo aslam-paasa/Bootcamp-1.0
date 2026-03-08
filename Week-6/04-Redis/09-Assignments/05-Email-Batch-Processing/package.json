@@ -1,0 +1,12 @@
+{
+  "name": "05-email-batch-processing",
+  "version": "1.0.0",
+  "description": "Email Batch Processing Project",
+  "license": "ISC",
+  "author": "Mohammad Aslam",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
