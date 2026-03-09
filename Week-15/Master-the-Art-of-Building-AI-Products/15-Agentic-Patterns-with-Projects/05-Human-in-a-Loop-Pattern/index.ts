@@ -1,0 +1,333 @@
+/**
+ * Agentic Pattern: Supervisor with Human-in-the-Loop
+ * > Multi-Agent Supervise Pattern
+ * > Common Human-in-a-loop Patterns:
+ *   1. Approval Workflow [done]
+ *   2. Review and Edit   [done]
+ *   3. Interrupting Tools Calls
+ *   4. Validating Human Input
+ * > https://docs.langchain.com/oss/javascript/langchain/supervisor
+ * 
+ *                          +------------+
+ *                          | Supervisor |
+ *                          +------------+
+ *                                 |
+ *                                 V
+ *       +-------------------------+-------------------------+
+ *       |                         |                         |
+ *       V                         V                         V
+ * +-------------+           +-------------+         +---------------+
+ * |    Tools    |           |    Tools    |         |     Tools     |
+ * +-------------+           +-------------+         +---------------+
+ *       |                         |                         |
+ *       V                         V                         V
+ * +-------------+           +-------------+         +---------------+
+ * | Email Agent |           | Event Agent |         | Contact Agent |
+ * +-------------+           +-------------+         +---------------+
+ *       |                         |                         |
+ *       V                         V                         V
+ * +-------------+           +-------------+         +---------------+
+ * |    Tools    |           |    Tools    |         |     Tools     |
+ * +-------------+           +-------------+         +---------------+
+*/
+
+import readline from 'node:readline/promises';
+import { ChatOpenAI } from '@langchain/openai';
+import { tool, createAgent, humanInTheLoopMiddleware } from 'langchain';
+import { MemorySaver, Command } from '@langchain/langgraph';
+import { z } from 'zod';
+
+const model = new ChatOpenAI({
+    model: 'gpt-4o-mini',
+});
+
+const createCalendarEvent = tool(
+    async ({ title, startTime, endTime, attendees, location }) => {
+        /* Stub: In practice, this would call Google Calendar API, Outlook API, etc. */
+        return `Event created: ${title} from ${startTime} to ${endTime} with ${attendees.length} attendees`;
+    },
+    {
+        name: 'create_calendar_event',
+        description: 'Create a calendar event. Requires exact ISO datetime format.',
+        schema: z.object({
+            title: z.string(),
+            startTime: z.string().describe("ISO format: '2024-01-15T14:00:00'"),
+            endTime: z.string().describe("ISO format: '2024-01-15T15:00:00'"),
+            attendees: z.array(z.string()).describe('email addresses'),
+            location: z.string().optional(),
+        }),
+    }
+);
+
+const sendEmail = tool(
+    async ({ to, subject, body, cc }) => {
+        // Stub: In practice, this would call SendGrid, Gmail API, etc.
+        return `Email sent to ${to.join(', ')} - Subject: ${subject}`;
+    },
+    {
+        name: 'send_email',
+        description: 'Send an email via email API. Requires properly formatted addresses.',
+        schema: z.object({
+            to: z.array(z.string()).describe('email addresses'),
+            subject: z.string(),
+            body: z.string(),
+            cc: z.array(z.string()).optional(),
+        }),
+    }
+);
+
+const getAvailableTimeSlots = tool(
+    async ({ attendees, date, durationMinutes }) => {
+        // Stub: In practice, this would query calendar APIs
+        return ['09:00', '14:00', '16:00'];
+    },
+    {
+        name: 'get_available_time_slots',
+        description: 'Check calendar availability for given attendees on a specific date.',
+        schema: z.object({
+            attendees: z.array(z.string()),
+            date: z.string().describe("ISO format: '2024-01-15'"),
+            durationMinutes: z.number(),
+        }),
+    }
+);
+
+const CALENDAR_AGENT_PROMPT = `
+        You are a calendar scheduling assistant.
+        Parse natural language scheduling requests (e.g., 'next Tuesday at 2pm')
+        into proper ISO datetime formats.
+        Use get_available_time_slots to check availability when needed.
+        Use create_calendar_event to schedule events.
+        Always confirm what was scheduled in your final response.
+`.trim();
+
+const calendarAgent = createAgent({
+    model: model,
+    tools: [createCalendarEvent, getAvailableTimeSlots],
+    systemPrompt: CALENDAR_AGENT_PROMPT,
+});
+
+const EMAIL_AGENT_PROMPT = `
+        You are an email assistant.
+        Compose professional emails based on natural language requests.
+        Extract recipient information and craft appropriate subject lines and body text.
+        Use send_email to send the message.
+        Always confirm what was sent in your final response.
+`.trim();
+
+const emailAgent = createAgent({
+    model: model,
+    tools: [sendEmail],
+    systemPrompt: EMAIL_AGENT_PROMPT,
+    middleware: [
+        humanInTheLoopMiddleware({
+            interruptOn: { send_email: true },
+            descriptionPrefix: "Email pending approval",
+        }),
+    ],
+});
+
+const CONTACT_AGENT_PROMPT = `
+        You are an contact assistant.
+        Find or create contact records as per requirement.
+        Use get_contacts to get the contact list.
+`.trim();
+
+const getContacts = tool(
+    async ({ search }) => {
+        // Stub: In practice, this would call contact database
+        return JSON.stringify([
+            { id: 1, team: 'design', name: 'Sujoy', email: 'sujoy@codersgyan.com' },
+            { id: 2, team: 'design', name: 'John', email: 'john@codersgyan.com' },
+            { id: 2, team: 'development', name: 'Kevin', email: 'kevin@codersgyan.com' },
+        ]);
+    },
+    {
+        name: 'get_contacts',
+        description: 'Get contact lists.',
+        schema: z.object({
+            search: z.string().describe('search query for the contact. e.g: design or sujoy'),
+        }),
+    }
+);
+
+const contactAgent = createAgent({
+    model: model,
+    tools: [getContacts],
+    systemPrompt: CONTACT_AGENT_PROMPT,
+});
+
+const scheduleEvent = tool(
+    async ({ request }) => {
+        const result = await calendarAgent.invoke({
+            messages: [{ role: 'user', content: request }],
+        });
+
+        const lastMessage = result.messages[result.messages.length - 1];
+
+        return typeof lastMessage.content === 'string'
+            ? lastMessage.content
+            : JSON.stringify(lastMessage.content);
+    },
+    {
+        name: 'schedule_event',
+        description: `
+            Schedule calendar events using natural language.
+            Use this when the user wants to create, modify, or check calendar appointments.
+            Handles date/time parsing, availability checking, and event creation.
+            Input: Natural language scheduling request (e.g., 'meeting with design team next Tuesday at 2pm')
+        `.trim(),
+        schema: z.object({
+            request: z.string().describe('Natural language scheduling request'),
+        }),
+    }
+);
+
+const manageEmail = tool(
+    async ({ request }) => {
+        const result = await emailAgent.invoke({
+            messages: [{ role: 'user', content: request }],
+        });
+        const lastMessage = result.messages[result.messages.length - 1];
+        return typeof lastMessage.content === 'string'
+            ? lastMessage.content
+            : JSON.stringify(lastMessage.content);
+    },
+    {
+        name: 'manage_email',
+        description: `
+            Send emails using natural language.
+            Use this when the user wants to send notifications, reminders, or any email communication.
+            Handles recipient extraction, subject generation, and email composition.
+            Input: Natural language email request (e.g., 'send them a reminder about the meeting')
+    `.trim(),
+        schema: z.object({
+            request: z.string().describe('Natural language email request'),
+        }),
+    }
+);
+
+const manageContacts = tool(
+    async ({ request }) => {
+        const result = await contactAgent.invoke({
+            messages: [{ role: 'user', content: request }],
+        });
+        const lastMessage = result.messages[result.messages.length - 1];
+        return typeof lastMessage.content === 'string'
+            ? lastMessage.content
+            : JSON.stringify(lastMessage.content);
+    },
+    {
+        name: 'manage_contacts',
+        description: `
+            Get contacts using natural language.
+            Use this when the user wants to get list of contacts or even single contact.
+            Input: Natural language contact request (e.g., 'give me all contacts for design team.')
+        `.trim(),
+        schema: z.object({
+            request: z.string().describe('Natural language contact list request'),
+        }),
+    }
+);
+
+const SUPERVISOR_PROMPT = `
+        You are a helpful personal assistant.
+        You can schedule calendar events and send emails.
+        To send emails/notifications, first call the manage_contacts tool to get email addresses.
+        Break down user requests into appropriate tool calls and coordinate the results.
+        When a request involves multiple actions, use multiple tools in sequence. Make sure to call the tools in correct order.
+        IMPORTANT: If the user rejects an email or action DO NOT recreate or retry. Simply acknowledge  the rejection and ask the user what they would like to do instead.
+        Do not attempt to send a modified version unless explicitly asked.
+        If user rejected, don't give the user draft.
+`.trim();
+
+const supervisorAgent = createAgent({
+    model: model,
+    tools: [scheduleEvent, manageEmail, manageContacts],
+    systemPrompt: SUPERVISOR_PROMPT,
+    checkpointer: new MemorySaver(),
+});
+
+type InterruptValue = {
+    actionRequest: {
+        description: string;
+        action: {
+            name: string;
+            args: Record<string, any>;
+        };
+    }[];
+    reviewConfigs: {
+        allowedDecisions: string[];
+    }[];
+}
+
+async function main() {
+    const config = { configurable: { thread_id: '1' } };
+
+    const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
+    // const query = `Schedule a team meeting Tuesday at 2PM for 1 hour.
+    //                There is not attendees for now, and use all default settings. Just create an event.`
+
+    let interrupts: any[] = [];
+
+    while (true) {
+        const query = await rl.question('You: ');
+        if (query === '/bye') break;
+
+        const resume: Record<string, any> = {};
+
+        if (interrupts.length) {
+            const interrupt = interrupts[0]
+
+            if (query === '2') {
+                /* handle edit */
+                const actionRequest = (interrupt.value as InterruptValue).actionRequest[0];
+                const editedAction = { ...actionRequest.action };
+                editedAction.args = { ...editedAction.args };
+                resume[interrupt.id] = {
+                    decisions: [{ type: 'edit', editedAction }]
+                };
+            } else {
+                /* handle approve/reject */
+                const decisionType = query === '1' ? 'approve' : 'reject';
+                resume[interrupt.id] = {
+                    decisions: [{ type: decisionType }]
+                };
+            }
+        }
+
+
+        const result = await supervisorAgent.invoke(
+            interrupts.length
+                ? new Command({ resume })
+                : {
+                    messages: [{ role: 'user', content: query }],
+                },
+            config
+        );
+
+        interrupts = []
+
+        let output = '';
+        if (result.__interrupt__) {
+            interrupts.push(result.__interrupt__[0]);
+
+            // show the approval message to the user
+            output += (result.__interrupt__[0].value as InterruptValue).actionRequest[0].description + "\n\n";
+            output += 'Choose one option: \n\n';
+            output += (result.__interrupt__[0].value as InterruptValue).reviewConfigs[0].allowedDecisions.map((decision, idx) => {
+                `${idx + 1}. ${decision}`
+            }).join('\n');
+
+            console.log(output);
+        } else {
+            const lastMessage = result.messages[result.messages.length - 1];
+            console.log(`\nAssistant: ${lastMessage.content}\n`);
+        }
+
+        console.log('result', JSON.stringify(result?.__interrupt__));
+    }
+    rl.close();
+}
+
+main();

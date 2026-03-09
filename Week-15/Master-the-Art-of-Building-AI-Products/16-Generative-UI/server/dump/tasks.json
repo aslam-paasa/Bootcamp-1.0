@@ -1,0 +1,57 @@
+Chunk {
+  id: 'c31e506a-e594-5b01-9f15-b16262c4f34f',
+  name: 'callModel',
+  input: {
+    messages: [
+      HumanMessage {
+        "id": "564693fc-cabe-456f-8a53-ba30b7de2d02",
+        "content": "hi",
+        "additional_kwargs": {},
+        "response_metadata": {}
+      }
+    ]
+  },
+  triggers: [ 'branch:to:callModel' ],
+  interrupts: []
+}
+(node:71402) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+Chunk {
+  id: 'c31e506a-e594-5b01-9f15-b16262c4f34f',
+  name: 'callModel',
+  result: {
+    messages: [
+      AIMessage {
+        "id": "chatcmpl-CgqpBFTyAym8OHwT67HHXtv9qr9HT",
+        "content": "Hi — how can I help with your expenses today?\n\nYou can:\n- Add an expense (e.g., \"Add: Lunch $12.50\")\n- View expenses for a date range (e.g., \"Show expenses from 2025-11-01 to 2025-11-28\")\n- Generate a chart of expenses by date/week/month\n\nWhat would you like to do?",
+        "additional_kwargs": {},
+        "response_metadata": {
+          "tokenUsage": {
+            "promptTokens": 344,
+            "completionTokens": 217,
+            "totalTokens": 561
+          },
+          "finish_reason": "stop",
+          "model_provider": "openai",
+          "model_name": "gpt-5-mini-2025-08-07"
+        },
+        "tool_calls": [],
+        "invalid_tool_calls": [],
+        "usage_metadata": {
+          "output_tokens": 217,
+          "input_tokens": 344,
+          "total_tokens": 561,
+          "input_token_details": {
+            "audio": 0,
+            "cache_read": 0
+          },
+          "output_token_details": {
+            "audio": 0,
+            "reasoning": 128
+          }
+        }
+      }
+    ]
+  },
+  interrupts: []
+}

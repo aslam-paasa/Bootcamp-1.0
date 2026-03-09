@@ -1,0 +1,15 @@
+{
+  "name": "06-email-sending-agent-using-human-in-a-loop-in-the-graph",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@langchain/langgraph": "^1.2.0"
+  }
+}

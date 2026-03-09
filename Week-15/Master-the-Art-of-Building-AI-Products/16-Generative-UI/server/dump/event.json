@@ -1,0 +1,10 @@
+{
+  "type": "toolCall:start",
+  "payload": {
+    "name": "get_expenses",
+    "args": {
+      "from": "2025-12-01",
+      "to": "2025-12-15"
+    }
+  }
+}
