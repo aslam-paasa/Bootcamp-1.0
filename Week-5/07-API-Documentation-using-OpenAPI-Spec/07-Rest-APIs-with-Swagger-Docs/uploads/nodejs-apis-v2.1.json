@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "57c311f4-efda-409c-8340-7189a73605bb",
+		"name": "YT Node js APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9966596"
+	},
+	"item": [
+		{
+			"name": "Register User API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"User 8\",\r\n    \"email\": \"user8@gmail.com\",\r\n    \"password\": \"12345678\",\r\n    \"gender\": \"male\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login User API",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"user8@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://test-apis-b36y.onrender.com/api/v1/auth/login",
+					"protocol": "https",
+					"host": [
+						"test-apis-b36y",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Post API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGRmMGRhM2M1Mjc2MDgzZDY2ZmJmOCIsIm5hbWUiOiJVc2VyIDgiLCJlbWFpbCI6InVzZXI4QGdtYWlsLmNvbSIsImlhdCI6MTc0NTc0NDE1NiwiZXhwIjoxNzQ2MzQ4OTU2fQ.BUb1-AjnsWHNHppBzEHXuuKrRaOxaX5Q-Ev0sWCBTFc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Sample Post 10",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "published",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "This is sample post content of Post - 5",
+							"type": "text"
+						},
+						{
+							"key": "bannerImage",
+							"type": "file",
+							"src": "/C:/Users/SIDDHARTH/OneDrive/Desktop/images/animal-1.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/post/add-post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"post",
+						"add-post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Profile API",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGRmMGRhM2M1Mjc2MDgzZDY2ZmJmOCIsIm5hbWUiOiJVc2VyIDgiLCJlbWFpbCI6InVzZXI4QGdtYWlsLmNvbSIsImlhdCI6MTc0NTc0NDE1NiwiZXhwIjoxNzQ2MzQ4OTU2fQ.BUb1-AjnsWHNHppBzEHXuuKrRaOxaX5Q-Ev0sWCBTFc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/auth/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Posts API",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGRmMGRhM2M1Mjc2MDgzZDY2ZmJmOCIsIm5hbWUiOiJVc2VyIDgiLCJlbWFpbCI6InVzZXI4QGdtYWlsLmNvbSIsImlhdCI6MTc0NTc0NDE1NiwiZXhwIjoxNzQ2MzQ4OTU2fQ.BUb1-AjnsWHNHppBzEHXuuKrRaOxaX5Q-Ev0sWCBTFc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/post/list-posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"post",
+						"list-posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Post API",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGRmMGRhM2M1Mjc2MDgzZDY2ZmJmOCIsIm5hbWUiOiJVc2VyIDgiLCJlbWFpbCI6InVzZXI4QGdtYWlsLmNvbSIsImlhdCI6MTc0NTc0NDE1NiwiZXhwIjoxNzQ2MzQ4OTU2fQ.BUb1-AjnsWHNHppBzEHXuuKrRaOxaX5Q-Ev0sWCBTFc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "title",
+							"value": "Updated Sample Post 4",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "draft",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/post/update-post/680df14709eab7922467ad86",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"post",
+						"update-post",
+						"680df14709eab7922467ad86"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Post API",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGRmMGRhM2M1Mjc2MDgzZDY2ZmJmOCIsIm5hbWUiOiJVc2VyIDgiLCJlbWFpbCI6InVzZXI4QGdtYWlsLmNvbSIsImlhdCI6MTc0NTc0NDE1NiwiZXhwIjoxNzQ2MzQ4OTU2fQ.BUb1-AjnsWHNHppBzEHXuuKrRaOxaX5Q-Ev0sWCBTFc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/post/delete-post/680df14709eab7922467ad86",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"post",
+						"delete-post",
+						"680df14709eab7922467ad86"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Single Post API",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MGRmMGRhM2M1Mjc2MDgzZDY2ZmJmOCIsIm5hbWUiOiJVc2VyIDgiLCJlbWFpbCI6InVzZXI4QGdtYWlsLmNvbSIsImlhdCI6MTc0NTc0NDE1NiwiZXhwIjoxNzQ2MzQ4OTU2fQ.BUb1-AjnsWHNHppBzEHXuuKrRaOxaX5Q-Ev0sWCBTFc",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/post/680e272563e9b1f786f69e6f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"post",
+						"680e272563e9b1f786f69e6f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Wise Posts",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "List Male Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/male-users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"male-users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users by Email Pattern",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/filtered-email",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"filtered-email"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users Having a Substring",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/user-substring",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user-substring"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Posts with User Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/all-posts-with-user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"all-posts-with-user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Logout API",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,12 @@
+/users/{id}:
+  get:
+    summary: Get a single user
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+    responses:
+      '200':
+        description: Successful response
