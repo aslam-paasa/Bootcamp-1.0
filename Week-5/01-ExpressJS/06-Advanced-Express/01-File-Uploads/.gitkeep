@@ -1,0 +1,4 @@
+# This file keeps the uploads/ folder in git.
+# Uploaded files will appear here after running the server.
+# Add "uploads/*" and "!uploads/.gitkeep" to your .gitignore
+# to track the folder but ignore the uploaded files.
