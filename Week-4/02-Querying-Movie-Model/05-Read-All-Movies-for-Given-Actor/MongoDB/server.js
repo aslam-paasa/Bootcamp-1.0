@@ -36,7 +36,7 @@ const mongoose = require('mongoose');
 /**
  * Assuming this is the path to your movie model:
 */
-const Movie = require('./movie.model.js');
+const Movie = require('../movie.model.js');
 
 
 /**

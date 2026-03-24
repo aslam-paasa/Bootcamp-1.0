@@ -29,7 +29,7 @@ mongoose.connect("mongodb+srv://aslampaasa420:Syn******er@cluster0.goyedz2.mongo
 
 async function createMovie() {
     try {
-        const moviesData = require('./movie.data.json');
+        const moviesData = require('../movie.data.json');
 
         // Clear existing movies
         await Movie.deleteMany({});
